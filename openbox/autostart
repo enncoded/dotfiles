@@ -1,0 +1,42 @@
+xrdb ~/.Xresources &
+
+res &
+
+# polybar -r base &
+
+# beep off
+xset -b &
+
+# start mpd
+mpd &
+
+# mpd scrobbler
+sleep 1m && mpdas -c /home/aquamarine/.mpdasrc &
+
+redshift &
+
+# set the background
+feh --bg-fill ~/Pictures/Wallpapers/05 - 9PAUsZA.jpg &
+
+discord &
+
+xmodmap /home/aquamarine/.Xmodmap &
+
+keepassxc &
+
+deluge &
+
+ibus-daemon -drx &
+
+compton -b --config ~/.config/compton.conf &
+
+nm-applet &
+
+steam &
+
+megasync &
+
+teamviewer &
+
+tint2 -c /home/aquamarine/.config/tint2/repentance-aqua.tint2rc &
+

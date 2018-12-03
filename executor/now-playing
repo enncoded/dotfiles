@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Shows current playing song in mpd
+# 'now-playing -i' = with icon, 'now-playing' = text only
+
+exec-mpc() {
+    mpc $* &> /dev/null
+}
+
+status=$(mpc status | sed -n 's/^\[\([^])]*\)\].*$/\1/p')
+
+if [[ $1 = "-i" && -n "$status" ]]; then
+# With icon
+playing="♫  "
+paused="♫  "
+stopped="♫  "
+
+else
+# Without icon
+playing=""
+paused=""
+stopped=""
+fi
+
+# Crop the text by 32 characters, only pick the song name
+song=$(mpc current | awk -F ' - ' '{printf "%s", substr($2, 0, 32)}')
+# Or not?
+song=$(mpc current)
+case $status in
+  playing) echo "$playing$song";;
+  paused)  echo "$paused$song";;
+  *)       echo "$stopped$song";;
+esac
+
