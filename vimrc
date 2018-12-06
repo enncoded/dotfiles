@@ -31,12 +31,15 @@ Plug 'ncm2/ncm2'
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-jedi'
-"Plug 'ncm2/ncm2-pyclang'
+Plug 'ncm2/ncm2-pyclang'
 Plug 'SirVer/ultisnips'
 Plug 'ncm2/ncm2-ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-vinegar'
 Plug 'Chiel92/vim-autoformat'
+Plug 'airblade/vim-gitgutter'
+Plug 'jreybert/vimagit'
+Plug 'tpope/vim-repeat'
 
 call plug#end()
 
@@ -83,7 +86,7 @@ let g:formatters_python = ['autopep8']
 let g:LanguageClient_serverCommands = {
     \ 'c': ['/usr/local/bin/cquery', '--log-file=/tmp/cc.log', '--init={"cacheDirectory":"/Users/aquamarine/languageserver"}'],
     \ 'cpp': ['/usr/local/bin/ccls', '--log-file=/tmp/cc.log', '--init={"cacheDirectory":"/Users/aquamarine/languageserver"}'],
-    \ 'python': ['jedi', '--log-file=/tmp/cc.log', '--init={"cacheDirectory":"/Users/aquamarine/languageserver"}']
+    \ 'python': ['/usr/local/bin/pyls', '--log-file=/tmp/cc.log', '--init={"cacheDirectory":"/Users/aquamarine/languageserver"}']
     \ }
 
 let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings
@@ -150,6 +153,8 @@ let g:ale_linters = {
             \ 'cpp': ['clangtidy', 'cppcheck', 'cpp-lint', 'clang'],
             \ 'python': ['flake8']
             \ }
+let g:ale_python_flake8_executable = 'python3'
+let g:ale_python_flake8_use_global = 1
 let g:ale_cpp_clang_options = '-std=c++11 -Wall'
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
@@ -159,7 +164,7 @@ nmap <silent> <C-]> <Plug>(ale_next_wrap)
 
 " Show 5 lines of errors (default: 10)
 let g:ale_list_window_size = 5
-let g:ale_python_flake8_options = '--ignore=E129,E501,E302,E265,E241,E305,E402,W503'
+let g:ale_python_flake8_options = '--ignore=E129,E501,E302,E265,E241,E305,E402,W503,E266,E261'
 
 "LIGHTLINE
 let g:lightline = {
@@ -190,6 +195,12 @@ let g:lightline#ale#indicator_warnings = "\uf071"
 let g:lightline#ale#indicator_errors = "\uf05e"
 let g:lightline#ale#indicator_ok = "\uf00c"
 
+"GITGUTTER
+set updatetime=100
+
+"HELPING VIM WORK BETTER WITH GIT
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' "Highlight commit merge conflict markers
+
 "map F1 key to :w
 nmap <F1> :w<CR>
 imap <F1> <Esc>:w<CR>
@@ -212,5 +223,6 @@ if !has('nvim')
     end
 endif
 
-"let g:ncm2_pyclang#library_path='/usr/local/Cellar/llvm/6.0.0/lib/'
+let g:clang_library_path='/usr/local/Cellar/llvm/6.0.0/lib/'
+let g:ncm2_pyclang#library_path='/usr/local/Cellar/llvm/6.0.0/lib/'
 
