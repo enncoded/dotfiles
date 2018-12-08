@@ -42,6 +42,8 @@ Plug 'jreybert/vimagit'
 Plug 'tpope/vim-repeat'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'Shougo/echodoc.vim'
+Plug 'davidhalter/jedi'
 
 call plug#end()
 
@@ -83,6 +85,9 @@ set undodir=~/.vim/undodir
 "vim-autoformat
 noremap <F3> :Autoformat<CR>
 let g:formatters_python = ['autopep8']
+
+"ECHODOC
+set noshowmode
 
 "LANGUAGECLIENT
 let g:LanguageClient_serverCommands = {
