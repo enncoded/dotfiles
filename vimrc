@@ -40,6 +40,8 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'airblade/vim-gitgutter'
 Plug 'jreybert/vimagit'
 Plug 'tpope/vim-repeat'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -84,9 +86,9 @@ let g:formatters_python = ['autopep8']
 
 "LANGUAGECLIENT
 let g:LanguageClient_serverCommands = {
-    \ 'c': ['/usr/local/bin/cquery', '--log-file=/tmp/cc.log', '--init={"cacheDirectory":"/Users/aquamarine/languageserver"}'],
-    \ 'cpp': ['/usr/local/bin/ccls', '--log-file=/tmp/cc.log', '--init={"cacheDirectory":"/Users/aquamarine/languageserver"}'],
-    \ 'python': ['/usr/local/bin/pyls', '--log-file=/tmp/cc.log', '--init={"cacheDirectory":"/Users/aquamarine/languageserver"}']
+    \ 'c': ['ccls', '--log-file=/tmp/cc.log', '--init={"cacheDirectory":"/Users/aquamarine/languageserver"}'],
+    \ 'cpp': ['ccls', '--log-file=/tmp/cc.log', '--init={"cacheDirectory":"/Users/aquamarine/languageserver"}'],
+    \ 'python': ['pyls', '--log-file=/tmp/cc.log', '--init={"cacheDirectory":"/Users/aquamarine/languageserver"}']
     \ }
 
 let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings
@@ -117,6 +119,11 @@ inoremap <c-c> <ESC>
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" a list of relative paths for compile_commands.json
+let g:ncm2_pyclang#database_path = [
+            \ 'compile_commands.json',
+            \ ]
 
 " wrap existing omnifunc
 " Note that omnifunc does not run in background and may probably block the
@@ -223,6 +230,6 @@ if !has('nvim')
     end
 endif
 
-let g:clang_library_path='/usr/local/Cellar/llvm/6.0.0/lib/'
-let g:ncm2_pyclang#library_path='/usr/local/Cellar/llvm/6.0.0/lib/'
+let g:clang_library_path='/usr/lib64/libclang.so'
+let g:ncm2_pyclang#library_path='/usr/lib64/libclang.so'
 
