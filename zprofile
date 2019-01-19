@@ -19,7 +19,7 @@ fi
 # Editors
 #
 
-export EDITOR='vim'
+export EDITOR='nvim'
 export VISUAL='subl'
 export PAGER='less'
 

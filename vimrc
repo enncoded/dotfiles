@@ -44,6 +44,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'Shougo/echodoc.vim'
 Plug 'davidhalter/jedi'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 
 call plug#end()
 
@@ -91,13 +93,13 @@ set noshowmode
 
 "LANGUAGECLIENT
 let g:LanguageClient_serverCommands = {
-    \ 'c': ['ccls', '--log-file=/tmp/cc.log', '--init={"cacheDirectory":"/Users/aquamarine/languageserver"}'],
-    \ 'cpp': ['ccls', '--log-file=/tmp/cc.log', '--init={"cacheDirectory":"/Users/aquamarine/languageserver"}'],
-    \ 'python': ['pyls', '--log-file=/tmp/cc.log', '--init={"cacheDirectory":"/Users/aquamarine/languageserver"}']
+    \ 'c': ['/usr/local/bin/ccls', '--log-file=/tmp/cc.log', '--init={"cacheDirectory":"~/languageserver"}'],
+    \ 'cpp': ['/usr/local/bin/ccls', '--log-file=/tmp/cc.log', '--init={"cacheDirectory":"~/languageserver"}'],
+    \ 'python': ['/Users/aquamarine/Library/Python/3.7/bin/pyls', '-v', '--log-file=/tmp/cc.log']
     \ }
 
 let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings
-let g:LanguageClient_settingsPath = '/home/aquamarine/.config/nvim/settings.json'
+let g:LanguageClient_settingsPath = '~/.config/nvim/settings.json'
 let g:LanguageClient_hasSnippetSupport = 0
 set completefunc=LanguageClient#complete
 set formatexpr=LanguageClient_textDocument_rangeFormatting()
@@ -126,9 +128,7 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " a list of relative paths for compile_commands.json
-let g:ncm2_pyclang#database_path = [
-            \ 'compile_commands.json',
-            \ ]
+let g:ncm2_pyclang#database_path = ['compile_commands.json']
 
 " wrap existing omnifunc
 " Note that omnifunc does not run in background and may probably block the
@@ -176,12 +176,25 @@ nmap <silent> <C-]> <Plug>(ale_next_wrap)
 
 " Show 5 lines of errors (default: 10)
 let g:ale_list_window_size = 5
-let g:ale_python_flake8_options = '--ignore=E129,E501,E302,E265,E241,E305,E402,W503,E266,E261'
+let g:ale_python_flake8_options = '--ignore=E129,E501,E302,E265,E241,E305,E402,W503,E266,E261,E303,E302'
+
+"PANDOC
+let g:pandoc#command#custom_open = 'MyPandocOpen'
+" I use zathura, you might use something else
+function! MyPandocOpen(file)
+    return 'zathura ' . shellescape(expand(a:file,':p'))
+endfunction
+com PandocInsModeline :normal Go[modeline]: # ( vim: set ft=pandoc: )<ESC>
+let g:pandoc#biblio#sources = "bcg"
+let g:pandoc#filetypes#handled = ["pandoc"]
+let g:pandoc#filetypes#pandoc_markdown = 0
+let g:pandoc#formatting#mode = 'hA'
+let g:pandoc#command#autoexec_on_writes = 1
+let g:pandoc#command#autoexec_command = 'Pandoc pdf -s'
+com PandocOpen Pandoc! pdf -s
 
 "LIGHTLINE
-let g:lightline = {
-            \ 'colorscheme': 'challenger_deep',
-            \ }
+let g:lightline = {'colorscheme': 'challenger_deep'}
 
 "Register the components
 let g:lightline.component_expand = {
@@ -235,6 +248,6 @@ if !has('nvim')
     end
 endif
 
-let g:clang_library_path='/usr/lib64/libclang.so'
-let g:ncm2_pyclang#library_path='/usr/lib64/libclang.so'
+let g:clang_library_path='/usr/local/Cellar/llvm/6.0.0/lib/libclang.dylib'
+let g:ncm2_pyclang#library_path='/usr/local/Cellar/llvm/6.0.0/lib/libclang.dylib'
 
