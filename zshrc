@@ -22,10 +22,18 @@ alias vi="nvim"
 alias vim="nvim"
 alias memcheck="valgrind --leak-check=full --show-reachable=yes"
 alias mpd="mpd ~/.config/mpd/mpd.conf"
+alias memcheck="valgrind --leak-check=full --show-reachable=yes"
+alias wrpi="mpv http://icecast1.wrpi.org:8000/mp3-256.mp3"
+alias psoft="cd ~/School/Programming/PSoft/homeworks/"
+alias pro="cd ~/School/Programming"
 
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
+
+export VISUAL='nvim'
+export EDITOR=$VISUAL
+export PAGER='less'
 
 # color for less and man 
 export MANPAGER='less -s -M +Gg'
@@ -39,7 +47,16 @@ export PATH=$PATH:~/bin
 export PATH=$PATH:/opt/local/bin:/opt/local/sbin
 export PATH=$PATH:~/Library/Python/3.7/bin
 export PATH=$PATH:/Library/TeX/texbin
-export PATH=$PATH:.
+export PATH=$PATH:~/.local/bin/
+export PATH=$PATH:~/home/aquamarine/.gem/ruby/2.6.0/bin
+export PATH=$PATH:~/.npm-global/bin
+export PATH=$PATH:~/.cache/yay/spotifyd/pkg/spotifyd-dbus-mpris/usr/bin
+
+export PATH=$PATH:~/.bar
+export PATH=$PATH:~/.toys
+export PATH=$PATH:~/.utility
+export PATH=$PATH:~/.notify
+export PATH=$PATH:~/.executor
 
 export GPG_TTY=$(tty)
 

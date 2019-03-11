@@ -16,7 +16,7 @@ sleep 1m && mpdas -c /home/aquamarine/.mpdasrc &
 redshift &
 
 # set the background
-feh --bg-fill ~/Pictures/Wallpapers/05 - 9PAUsZA.jpg &
+feh --bg-fill ~/Pictures/Wallpapers/ariawindmills.jpg &
 
 discord &
 
@@ -28,15 +28,19 @@ deluge &
 
 ibus-daemon -drx &
 
-compton -b --config ~/.config/compton.conf &
+tint2 &
+
+compton --dbus --config ~/.config/compton.conf &
 
 nm-applet &
 
-steam &
+#steam &
 
 megasync &
 
 teamviewer &
 
-tint2 -c /home/aquamarine/.config/tint2/repentance-aqua.tint2rc &
+sleep 10 &
+
+restarttint2
 

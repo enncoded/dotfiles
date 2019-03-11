@@ -25,3 +25,14 @@ def_key "n"
 def_key "N"
     previous_found_item
 
+def_key "m"
+  move_sort_order_down
+
+def_key "m"
+  move_selected_items_down
+
+def_key ","
+  move_sort_order_up
+
+def_key ","
+ move_selected_items_up

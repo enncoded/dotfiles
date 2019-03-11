@@ -15,26 +15,14 @@ Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'unblevable/quick-scope'
 Plug 'wellle/targets.vim'
-Plug 'tpope/vim-surround'
+Plug 'machakann/vim-sandwich'
 Plug 'Raimondi/delimitMate'
-"Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'thaerkh/vim-indentguides'
 Plug 'tmhedberg/SimpylFold'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2'
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-jedi'
-Plug 'ncm2/ncm2-pyclang'
 Plug 'SirVer/ultisnips'
 Plug 'ncm2/ncm2-ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'tpope/vim-vinegar'
 Plug 'Chiel92/vim-autoformat'
 Plug 'airblade/vim-gitgutter'
@@ -43,9 +31,10 @@ Plug 'tpope/vim-repeat'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'Shougo/echodoc.vim'
-Plug 'davidhalter/jedi'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
 call plug#end()
 
@@ -55,9 +44,7 @@ syntax on
 set background=dark
 
 set hidden
-
 set number
-
 set autoindent
 
 set tabstop=4
@@ -75,7 +62,6 @@ set laststatus=2
 set relativenumber
 "set matchpairs+=<:>
 
-set pastetoggle=<F10>
 set mouse=a
 
 let g:session_autoload = 'no'
@@ -89,71 +75,22 @@ noremap <F3> :Autoformat<CR>
 let g:formatters_python = ['autopep8']
 
 "ECHODOC
+set cmdheight=2
 set noshowmode
 
-"LANGUAGECLIENT
-let g:LanguageClient_serverCommands = {
-    \ 'c': ['/usr/local/bin/ccls', '--log-file=/tmp/cc.log', '--init={"cacheDirectory":"~/languageserver"}'],
-    \ 'cpp': ['/usr/local/bin/ccls', '--log-file=/tmp/cc.log', '--init={"cacheDirectory":"~/languageserver"}'],
-    \ 'python': ['/Users/aquamarine/Library/Python/3.7/bin/pyls', '-v', '--log-file=/tmp/cc.log']
-    \ }
-
-let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings
-let g:LanguageClient_settingsPath = '~/.config/nvim/settings.json'
-let g:LanguageClient_hasSnippetSupport = 0
-set completefunc=LanguageClient#complete
-set formatexpr=LanguageClient_textDocument_rangeFormatting()
-
-nn <silent> <M-j> :call LanguageClient#textDocument_definition()<cr>
-nn <silent> <C-,> :call LanguageClient#textDocument_references({'includeDeclaration': v:false})<cr>
-nn <silent> K :call LanguageClient#textDocument_hover()<cr>
-set signcolumn=yes
-
-"NCM2
-" enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
-inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-
-" IMPORTANTE: :help Ncm2PopupOpen for more information
-set completeopt=noinsert,menuone,noselect
-
-" suppress the annoying 'match x of y', 'The only match' and 'Pattern not
-" found' messages
-set shortmess+=c
-
-" CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
-inoremap <c-c> <ESC>
-
+"COC
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif " Close preview window when done
 
-" a list of relative paths for compile_commands.json
-let g:ncm2_pyclang#database_path = ['compile_commands.json']
-
-" wrap existing omnifunc
-" Note that omnifunc does not run in background and may probably block the
-" editor. If you don't want to be blocked by omnifunc too often, you could
-" add 180ms delay before the omni wrapper:
-"  'on_complete': ['ncm2#on_complete#delay', 180,
-"               \ 'ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
-au User Ncm2Plugin call ncm2#register_source({
-        \ 'name' : 'css',
-        \ 'priority': 9, 
-        \ 'subscope_enable': 1,
-        \ 'scope': ['css','scss'],
-        \ 'mark': 'css',
-        \ 'word_pattern': '[\w\-]+',
-        \ 'complete_pattern': ':\s*',
-        \ 'on_complete': ['ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
-        \ })
-
-" Press enter key to trigger snippet expansion
-" The parameters are the same as `:help feedkeys()`
-" inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+"Coc-Highlight
+autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " c-j c-k for moving in snippet
-imap <expr> <c-u> ncm2_ultisnips#expand_or("\<Plug>(ultisnips_expand)", 'm')
-smap <c-u> <Plug>(ultisnips_expand)
+"imap <expr> <c-u> ncm2_ultisnips#expand_or("\<Plug>(ultisnips_expand)", 'm')
+"smap <c-u> <Plug>(ultisnips_expand)
+imap <c-u> <Plug>(ultisnips_expand)
 let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
 let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
@@ -171,6 +108,8 @@ let g:ale_cpp_clang_options = '-std=c++11 -Wall'
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 let g:ale_open_list = 0
+let g:ale_fix_on_save = 1
+let g:ale_linters_explicit = 1
 nmap <silent> <C-[> <Plug>(ale_previous_wrap)
 nmap <silent> <C-]> <Plug>(ale_next_wrap)
 
@@ -194,37 +133,28 @@ let g:pandoc#command#autoexec_command = 'Pandoc pdf -s'
 com PandocOpen Pandoc! pdf -s
 
 "LIGHTLINE
-let g:lightline = {'colorscheme': 'challenger_deep'}
-
-"Register the components
-let g:lightline.component_expand = {
-            \  'linter_checking': 'lightline#ale#checking',
-            \  'linter_warnings': 'lightline#ale#warnings',
-            \  'linter_errors': 'lightline#ale#errors',
-            \  'linter_ok': 'lightline#ale#ok',
+let g:lightline = {
+            \ 'colorscheme': 'challenger_deep',
+            \ 'active': {
+            \   'left': [ [ 'mode', 'paste' ],
+            \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+            \ },
+            \ 'component_function': {
+            \   'cocstatus': 'coc#status'
+            \ },
             \ }
-
-"Color the components
-let g:lightline.component_type = {
-            \     'linter_checking': 'left',
-            \     'linter_warnings': 'warning',
-            \     'linter_errors': 'error',
-            \     'linter_ok': 'left',
-            \ }
-
-"Add components to the lightline
-let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]] }
-
-let g:lightline#ale#indicator_checking = "\uf110"
-let g:lightline#ale#indicator_warnings = "\uf071"
-let g:lightline#ale#indicator_errors = "\uf05e"
-let g:lightline#ale#indicator_ok = "\uf00c"
 
 "GITGUTTER
 set updatetime=100
 
 "HELPING VIM WORK BETTER WITH GIT
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' "Highlight commit merge conflict markers
+
+"CTRL-P
+" Set no max file limit
+let g:ctrlp_max_files = 0
+" Search from current directory instead of project root
+let g:ctrlp_working_path_mode = 0
 
 "map F1 key to :w
 nmap <F1> :w<CR>

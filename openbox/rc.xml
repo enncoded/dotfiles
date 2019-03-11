@@ -24,14 +24,14 @@
     <titleLayout>IMC</titleLayout>
     <animateIconify>no</animateIconify>
     <font place="ActiveWindow">
-      <name>UW Ttyp0</name>
-      <size>8</size>
+      <name>Noto Sans Display</name>
+      <size>10</size>
       <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
     <font place="InactiveWindow">
-      <name>UW Ttyp0</name>
-      <size>8</size>
+      <name>Noto Sans Display</name>
+      <size>10</size>
       <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
@@ -270,12 +270,22 @@
     </keybind>
     <keybind key="W-Shift-s">
       <action name="Execute">
-          <command>~/bin/scrwindow</command>
+        <command>~/bin/scrwindow</command>
       </action>
     </keybind>
     <keybind key="W-s">
       <action name="Execute">
-          <command>~/bin/scrselect</command>
+        <command>~/bin/scrselect</command>
+      </action>
+    </keybind>
+    <keybind key="W-x">
+      <action name="Execute">
+        <command>betterlockscreen -l blur</command>
+      </action>
+    </keybind>
+    <keybind key="W-i">
+      <action name="Execute">
+          <command>rofimoji</command>
       </action>
     </keybind>
   </keyboard>
