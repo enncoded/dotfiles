@@ -45,7 +45,7 @@ export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:~/bin
 export PATH=$PATH:/opt/local/bin:/opt/local/sbin
-export PATH=$PATH:~/Library/Python/3.7/bin
+#export PATH=$PATH:~/Library/Python/3.7/bin
 export PATH=$PATH:/Library/TeX/texbin
 export PATH=$PATH:~/.local/bin/
 export PATH=$PATH:~/home/aquamarine/.gem/ruby/2.6.0/bin
@@ -57,6 +57,7 @@ export PATH=$PATH:~/.toys
 export PATH=$PATH:~/.utility
 export PATH=$PATH:~/.notify
 export PATH=$PATH:~/.executor
+export PATH=~/penv/bin/:$PATH
 
 export GPG_TTY=$(tty)
 
@@ -65,11 +66,11 @@ autoload -U promptinit; promptinit
 PURE_PROMPT_SYMBOL_COLOR=225
 prompt purer
 
-PATH="/Users/aquamarine/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/Users/aquamarine/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/aquamarine/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/Users/aquamarine/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/aquamarine/perl5"; export PERL_MM_OPT;
+#PATH="/Users/aquamarine/perl5/bin${PATH:+:${PATH}}"; export PATH;
+#PERL5LIB="/Users/aquamarine/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+#PERL_LOCAL_LIB_ROOT="/Users/aquamarine/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+#PERL_MB_OPT="--install_base \"/Users/aquamarine/perl5\""; export PERL_MB_OPT;
+#PERL_MM_OPT="INSTALL_BASE=/Users/aquamarine/perl5"; export PERL_MM_OPT;
 
 #curl wttr.in/troy\?Q0
 
