@@ -33,7 +33,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'Shougo/echodoc.vim'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
 call plug#end()
@@ -70,6 +69,13 @@ let g:session_autoload = 'no'
 set undofile
 set undodir=~/.vim/undodir
 
+"fzf
+nnoremap <silent> <C-p> :Files<CR>
+
+" Default fzf layout
+" - down / up / left / right
+let g:fzf_layout = { 'down': '~30%' }
+
 "vim-autoformat
 noremap <F3> :Autoformat<CR>
 let g:formatters_python = ['autopep8']
@@ -100,9 +106,10 @@ let g:UltiSnipsRemoveSelectModeMappings = 0
 let g:ale_linters = {
             \ 'c': ['clang'],
             \ 'cpp': ['clangtidy', 'cppcheck', 'cpp-lint', 'clang'],
-            \ 'python': ['flake8']
+            \ 'python': ['flake8'],
+            \ 'sh': ['language_server']
             \ }
-let g:ale_python_flake8_executable = 'python3'
+let g:ale_python_flake8_executable = 'python'
 let g:ale_python_flake8_use_global = 1
 let g:ale_cpp_clang_options = '-std=c++11 -Wall'
 let g:ale_set_loclist = 0
