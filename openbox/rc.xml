@@ -278,6 +278,11 @@
         <command>~/bin/scrselect</command>
       </action>
     </keybind>
+    <keybind key="W-Shift-s">
+      <action name="Execute">
+        <command>~/bin/scrselect</command>
+      </action>
+    </keybind>
     <keybind key="W-x">
       <action name="Execute">
         <command>betterlockscreen -l blur</command>
@@ -285,7 +290,7 @@
     </keybind>
     <keybind key="W-i">
       <action name="Execute">
-          <command>rofimoji</command>
+        <command>rofimoji</command>
       </action>
     </keybind>
   </keyboard>

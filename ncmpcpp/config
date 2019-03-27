@@ -17,7 +17,7 @@ user_interface = "alternative"
 follow_now_playing_lyrics = "yes"
 locked_screen_width_part = "60"
 display_bitrate = "yes"
-external_editor = "nano"
+external_editor = "vim"
 use_console_editor = "yes"
 header_window_color = "cyan"
 volume_color = "red"
@@ -42,7 +42,7 @@ progressbar_look = "─╼·"
 titles_visibility = "no"
 
 # Others
-song_window_title_format = "{%a > }{%t}{ [%b{ Disc %d}]}|{%f}"
+song_window_title_format = "{%a - }{%t}{ [%b{ Disc %d}]}|{%f}"
 allow_for_physical_item_deletion = "yes"
 #display_screens_numbers_on_start = "no"
 
