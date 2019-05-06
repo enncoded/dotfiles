@@ -33,7 +33,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'Shougo/echodoc.vim'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh nightly'}
 
 call plug#end()
 
@@ -185,6 +185,9 @@ if !has('nvim')
     end
 endif
 
-let g:clang_library_path='/usr/local/Cellar/llvm/6.0.0/lib/libclang.dylib'
-let g:ncm2_pyclang#library_path='/usr/local/Cellar/llvm/6.0.0/lib/libclang.dylib'
+let g:python3_host_prog='/home/aquamarine/.pyenv/versions/neovim/bin/python3'
+let g:python_host_prog='/home/aquamarine/.pyenv/versions/env-2.7.16/bin/python'
+
+"let g:clang_library_path='/usr/local/Cellar/llvm/6.0.0/lib/libclang.dylib'
+"let g:ncm2_pyclang#library_path='/usr/local/Cellar/llvm/6.0.0/lib/libclang.dylib'
 

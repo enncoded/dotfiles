@@ -23,9 +23,11 @@ alias vim="nvim"
 alias memcheck="valgrind --leak-check=full --show-reachable=yes"
 alias mpd="mpd ~/.config/mpd/mpd.conf"
 alias memcheck="valgrind --leak-check=full --show-reachable=yes"
-alias wrpi="mpv http://icecast1.wrpi.org:8000/mp3-256.mp3"
+alias wrpi="mpv http://icecast1.wrpi.org:8000/mp3-320.mp3"
 alias psoft="cd ~/School/Programming/PSoft/homeworks/"
 alias pro="cd ~/School/Programming"
+alias open="xdg-open"
+#alias updong=""
 
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
@@ -48,7 +50,7 @@ export PATH=$PATH:/opt/local/bin:/opt/local/sbin
 #export PATH=$PATH:~/Library/Python/3.7/bin
 export PATH=$PATH:/Library/TeX/texbin
 export PATH=$PATH:~/.local/bin/
-export PATH=$PATH:~/home/aquamarine/.gem/ruby/2.6.0/bin
+export PATH=$PATH:~/.gem/ruby/2.6.0/bin
 export PATH=$PATH:~/.npm-global/bin
 export PATH=$PATH:~/.cache/yay/spotifyd/pkg/spotifyd-dbus-mpris/usr/bin
 
@@ -57,7 +59,10 @@ export PATH=$PATH:~/.toys
 export PATH=$PATH:~/.utility
 export PATH=$PATH:~/.notify
 export PATH=$PATH:~/.executor
-export PATH=~/penv/bin/:$PATH
+export PATH=~/venv/bin:$PATH
+export PATH="/home/aquamarine/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 export GPG_TTY=$(tty)
 
