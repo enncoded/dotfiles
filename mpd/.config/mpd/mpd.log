@@ -23011,3 +23011,19 @@ May 25 00:10 : player: played "Piano Collections NieR Gestalt & Replicant/08 God
 May 25 00:14 : player: played "Piano Collections NieR Gestalt & Replicant/09 Shadowlord.mp3"
 May 25 00:19 : player: played "Piano Collections NieR Gestalt & Replicant/10 The Wretched Automatons.mp3"
 May 25 00:24 : player: played "Piano Collections NieR Gestalt & Replicant/11 Ashes of Dream.mp3"
+May 25 15:56 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+May 25 15:56 : client: [0] opened from 127.0.0.1:57178
+May 25 16:04 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+May 25 16:04 : client: [0] opened from 127.0.0.1:43578
+May 25 16:34 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+May 25 16:34 : client: [0] opened from 127.0.0.1:39866
+May 25 21:13 : client: [1] opened from 127.0.0.1:41620
+May 25 21:13 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+May 25 21:13 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+May 25 21:13 : client: [1] closed
+May 25 21:13 : client: [2] opened from 127.0.0.1:41626
+May 25 21:13 : client: [2] closed
+May 27 10:45 : player: played "Piano Collections NieR Gestalt & Replicant/03 Hills of Radiant Wind.mp3"
+May 27 13:14 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+May 27 13:14 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+May 27 13:14 : client: [0] opened from 127.0.0.1:40508

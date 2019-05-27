@@ -1,9 +1,11 @@
-mpv/watch_later
-mpd/log
+mpv/.config/mpv/watch_later
+mpd/.config/mpd/mpd.log
+mpd/.config/mpd/mpd.db
+mpd/.config/mpd/mpd.pid
+mpd/.config/mpd/mpdstate
+mpd/.config/mpd/playlists
 ncmpcpp/art*
 ncmpcpp/error.log
-polybar/reddit-config
-tint2/other-themes
 vim/
 tint2/
 obmenu-generator/

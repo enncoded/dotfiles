@@ -39,6 +39,7 @@ bspc rule -a Firefox:\* desktop='^2'
 bspc rule -a discord:\* desktop='^3'
 bspc rule -a spotify:\* desktop='^4'
 bspc rule -a Steam:\* desktop='^5'
+bspc rule -a Thunderbird: desktop='^6'
 bspc rule -a Deluge desktop='^9'
 bspc rule -a keepassxc:\* state=floating
 bspc rule -a mpv:\* state=floating
