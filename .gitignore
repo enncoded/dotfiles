@@ -1,9 +1,9 @@
 mpv/.config/mpv/watch_later
-mpd/.config/mpd/mpd.log
+mpd/.config/mpd/playlists
 mpd/.config/mpd/mpd.db
+mpd/.config/mpd/mpd.log
 mpd/.config/mpd/mpd.pid
 mpd/.config/mpd/mpdstate
-mpd/.config/mpd/playlists
 ncmpcpp/art*
 ncmpcpp/error.log
 vim/
