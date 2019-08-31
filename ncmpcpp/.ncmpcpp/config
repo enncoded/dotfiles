@@ -38,7 +38,8 @@ song_columns_list_format = "(6f)[blue]{l} (25)[red]{a} (40)[green]{t|f} (30)[yel
 #now_playing_suffix = "$/b"
 
 song_status_format = "$2%a $1• $3%t $1• $4%b {(Disc %d) }$1• $5%y$1"
-progressbar_look = "─╼·"
+#progressbar_look = "─╼·"
+progressbar_look = "=>"
 titles_visibility = "no"
 
 # Others

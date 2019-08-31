@@ -57,5 +57,6 @@ ibus-daemon -drx &
 
 redshift &
 
-exec bspwm
+exec startxfce4
+#exec bspwm
 

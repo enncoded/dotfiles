@@ -1,16 +1,20 @@
 #!/usr/bin/env bash
 
 ~/.fehbg &
-~/.config/polybar/launch.sh &
 keepassxc &
-steam &
-firefox &
+firefox-nightly &
 alacritty &
 discord &
 thunderbird &
-redshift &
+#redshift &
+dunst -conf ~/.config/dunst/dunstrc &
 mpd &
+mpdas &
 nm-applet &
 compton &
-ibus-daemon -drx
+ibus-daemon -drx &
+~/.config/polybar/launch.sh &
+transmission-gtk
+#cadence-session-start --system-start &
+#pulseeffects --gapplication-service
 

@@ -9,10 +9,10 @@ super + shift + r
 # brightness and darkness of monitor
 # darker
 XF86MonBrightnessDown
-    xbacklight -2
+    light -U 2
 # brighter
 XF86MonBrightnessUp
-    xbacklight +2
+    light -A 2
 
 # volume control
 # quieter
@@ -175,7 +175,7 @@ super + {Left,Down,Up,Right}
 
 # extras
 super + s
-    bash /home/aquamarine/bin/scr -s
+    scr -s
 
 super + i
     rofimoji

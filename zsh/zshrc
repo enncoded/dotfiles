@@ -1,31 +1,17 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
 # Customize to your needs...
-alias c=clear
+alias c="clear"
+alias ls='ls --color=auto'
 alias la="ls -la"
-alias fetch=neofetch
+alias fetch="neofetch"
 alias shutdown="sudo poweroff"
 alias logoff="sudo pkill -u aquamarine"
 alias vi="nvim"
 alias vim="nvim"
 alias memcheck="valgrind --leak-check=full --show-reachable=yes"
 alias mpd="mpd ~/.config/mpd/mpd.conf"
-alias mcc="gcc -Wall -Werror -g -o output"
 alias wrpi="mpv http://icecast1.wrpi.org:8000/mp3-320.mp3"
 alias pro="cd ~/Programming"
-alias opsys="cd ~/Programming/Opsys/homeworks/"
 alias open="xdg-open"
-#alias updong="scp -i ~/.ssh/imgaylmaoo" $1 "uploader@gamerdong.men:$2"
 
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
@@ -45,11 +31,8 @@ export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:~/bin
 export PATH=$PATH:/opt/local/bin:/opt/local/sbin
-#export PATH=$PATH:~/Library/Python/3.7/bin
 export PATH=$PATH:~/.local/bin/
 export PATH=$PATH:~/.gem/ruby/2.6.0/bin
-export PATH=$PATH:~/.npm-packages/bin
-#export PATH=$PATH:~/.cache/yay/spotifyd/pkg/spotifyd-dbus-mpris/usr/bin
 
 export PATH=$PATH:~/dotfiles/extra/utility
 export PATH=$PATH:~/dotfiles/extra/executor
@@ -58,18 +41,30 @@ export PATH="/home/aquamarine/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+#PROMPT='%F{green}%B%c%b%f '
 export GPG_TTY=$(tty)
-
-fpath=( "$HOME/.zprezto/modules/prompt/functions" $fpath )
-fpath+=($fpath '/home/aquamarine/.nvm/versions/node/v12.2.0/lib/node_modules/purer-prompt/functions')
-autoload -U promptinit; promptinit
-PURE_PROMPT_SYMBOL_COLOR=225
-prompt purer
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-source /usr/share/nvm/init-nvm.sh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-#export LD_PRELOAD=$LD_PRELOAD:/usr/lib/libcurl.so.3:/usr/lib/spotifywm.so /usr/share/spotify/spotify
+# set title on terminal spawn
+precmd () {
+    print -Pn "\e]0;%~\a"
+}
 
+autoload -U promptinit; promptinit
+prompt pure
+
+autoload -U compinit
+compinit
+
+export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
+export LESS_TERMCAP_md=$'\E[1;36m'     # begin blink
+export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
+export LESS_TERMCAP_so=$'\E[01;44;33m' # begin reverse video
+export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
+export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
+export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
+
+source ~/websites

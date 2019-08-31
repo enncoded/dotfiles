@@ -1,5 +1,6 @@
 {
-    "coc.preferences.diagnostic.enable": true,
+    "coc.preferences.snippets.enable": true,
+    "coc.source.ultisnips.enable": true,
     "coc.preferences.formatOnSaveFiletypes": ["rust", "cpp", "c", "python"],
     "list.normalMappings": {
         "t": "action:tabe",
@@ -39,8 +40,9 @@
     },
     "diagnostic-languageserver.formatFiletypes": {
         "rust": "rustfmt",
-        "c": "ccls",
-        "cpp": "ccls",
+        "c": "clang-format",
+        "cpp": "clang-format",
         "python": "flake8"
-    }
+    },
+    "java.errors.incompleteClasspath.severity": "ignore"
 }

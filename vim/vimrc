@@ -23,7 +23,6 @@ Plug 'thaerkh/vim-indentguides'
 Plug 'tmhedberg/SimpylFold'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-vinegar'
-Plug 'Chiel92/vim-autoformat'
 Plug 'airblade/vim-gitgutter'
 Plug 'jreybert/vimagit'
 Plug 'tpope/vim-repeat'
@@ -76,11 +75,6 @@ nnoremap <silent> <C-p> :Files<CR>
 " - down / up / left / right
 let g:fzf_layout = { 'down': '~30%' }
 
-"vim-autoformat
-noremap <F3> :Autoformat<CR>
-let g:formatters_python = ['autopep8']
-let g:formatters_rust = ['rustfmt']
-
 "ECHODOC
 set cmdheight=2
 set noshowmode
@@ -103,9 +97,9 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 "imap <expr> <c-u> ncm2_ultisnips#expand_or("\<Plug>(ultisnips_expand)", 'm')
 "smap <c-u> <Plug>(ultisnips_expand)
 imap <c-u> <Plug>(ultisnips_expand)
-let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
-let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
-let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
+let g:UltiSnipsExpandTrigger        = "<Plug>(ultisnips_expand)"
+let g:UltiSnipsJumpForwardTrigger   = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger  = "<c-k>"
 let g:UltiSnipsRemoveSelectModeMappings = 0
 
 ""ALE
@@ -169,9 +163,9 @@ let g:lightline = {
             \ }
 
 function! LightlineGitBlame() abort
-  let blame = get(b:, 'coc_git_blame', '')
-  " return blame
-  return winwidth(0) > 120 ? blame : ''
+    let blame = get(b:, 'coc_git_blame', '')
+    " return blame
+    return winwidth(0) > 120 ? blame : ''
 endfunction
 
 "GITGUTTER
