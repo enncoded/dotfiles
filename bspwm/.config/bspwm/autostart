@@ -6,7 +6,7 @@ firefox-nightly &
 alacritty &
 discord &
 thunderbird &
-#redshift &
+redshift &
 dunst -conf ~/.config/dunst/dunstrc &
 mpd &
 mpdas &
@@ -14,7 +14,8 @@ nm-applet &
 compton &
 ibus-daemon -drx &
 ~/.config/polybar/launch.sh &
-transmission-gtk
+transmission-gtk &
+sxhkd &
 #cadence-session-start --system-start &
 #pulseeffects --gapplication-service
 

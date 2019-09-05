@@ -27,9 +27,9 @@ export LESS="--RAW-CONTROL-CHARS"
 lesscolors=$HOME/bin/.LESS_TERMCAP
 [[ -f $lesscolors ]] && . $lesscolors
 
+export PATH=$PATH:~/bin
 export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:/usr/local/bin
-export PATH=$PATH:~/bin
 export PATH=$PATH:/opt/local/bin:/opt/local/sbin
 export PATH=$PATH:~/.local/bin/
 export PATH=$PATH:~/.gem/ruby/2.6.0/bin
