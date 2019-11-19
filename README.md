@@ -6,7 +6,7 @@ Linux config files managed using GNU stow.
 * bspwm
 * polybar
 * alacritty
-* neovim (pure font)
+* neovim (pure prompt)
 
 # images
 ![Image 1](https://i.imgur.com/MA2ldST.png)
