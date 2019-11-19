@@ -173,10 +173,22 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
     bspc node -v {-20 0,0 20,0 -20,20 0}
 
+#
 # extras
-super + s
-    scr -s
+#
 
+# screenshot a region
+super + s
+    /home/aquamarine/bin/scr -s
+
+# screenshot current window
+super + shift + s
+    /home/aquamarine/bin/scr -w
+
+super + j
+	notify-send "$~"
+
+# select emoji
 super + i
     rofimoji
 

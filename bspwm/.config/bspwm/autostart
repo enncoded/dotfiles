@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+#~/bin/start_jack &
 ~/.fehbg &
 keepassxc &
 firefox-nightly &
@@ -11,11 +12,10 @@ dunst -conf ~/.config/dunst/dunstrc &
 mpd &
 mpdas &
 nm-applet &
-compton &
+picom &
 ibus-daemon -drx &
 ~/.config/polybar/launch.sh &
 transmission-gtk &
-sxhkd &
-#cadence-session-start --system-start &
-#pulseeffects --gapplication-service
+cadence-session-start --system-start &
+~/.config/polybar/scripts/spotify/py_spotify_listener.py &
 

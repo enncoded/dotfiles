@@ -12,6 +12,9 @@ alias mpd="mpd ~/.config/mpd/mpd.conf"
 alias wrpi="mpv http://icecast1.wrpi.org:8000/mp3-320.mp3"
 alias pro="cd ~/Programming"
 alias open="xdg-open"
+alias dsrc="ssh $DSERVER"
+#alias yay="yay --editmenu --nodiffmenu --save"
+#alias dock="sudo docker build -t=mcsema . && sudo docker run --rm -it --ipc=host -v "${PWD}":/home/user/local mcsema"
 
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
@@ -21,12 +24,16 @@ export VISUAL='nvim'
 export EDITOR=$VISUAL
 export PAGER='less'
 
-# color for less and man 
+# other exports
+export obfus='/home/aquamarine/vbox shared/obfuscator/lib/Transforms/Obfuscation/'
+
+# color for less and man
 export MANPAGER='less -s -M +Gg'
 export LESS="--RAW-CONTROL-CHARS"
 lesscolors=$HOME/bin/.LESS_TERMCAP
 [[ -f $lesscolors ]] && . $lesscolors
 
+# PATH
 export PATH=$PATH:~/bin
 export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:/usr/local/bin
@@ -67,4 +74,3 @@ export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
-source ~/websites
