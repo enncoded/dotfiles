@@ -10,9 +10,7 @@ set encoding=utf-8
 
 call plug#begin('~/.vim/plugged')
 
-"Plug 'w0rp/ale'
 Plug 'itchyny/lightline.vim'
-"Plug 'maximbaz/lightline-ale'
 Plug 'unblevable/quick-scope'
 Plug 'wellle/targets.vim'
 Plug 'machakann/vim-sandwich'
@@ -32,6 +30,7 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'kovetskiy/sxhkd-vim'
+Plug 'triglav/vim-visual-increment'
 
 call plug#end()
 
@@ -100,27 +99,6 @@ let g:UltiSnipsExpandTrigger        = "<Plug>(ultisnips_expand)"
 let g:UltiSnipsJumpForwardTrigger   = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger  = "<c-k>"
 let g:UltiSnipsRemoveSelectModeMappings = 0
-
-""ALE
-"let g:ale_linters = {
-"            \ 'c': ['clang'],
-"            \ 'python': ['flake8']
-"            \ }
-""\ 'cpp': ['clangtidy', 'cppcheck', 'cpp-lint', 'clang'],
-"let g:ale_python_flake8_executable = '~/.pyenv/versions/neovim3/bin/python'
-"let g:ale_python_flake8_use_global = 1
-""let g:ale_cpp_clang_options = '$(pkg-config --cflags --libs Qt5Widgets) -fPIC'
-"let g:ale_set_loclist = 0
-"let g:ale_set_quickfix = 1
-"let g:ale_open_list = 0
-"let g:ale_fix_on_save = 1
-"let g:ale_linters_explicit = 1
-"nmap <silent> <C-[> <Plug>(ale_previous_wrap)
-"nmap <silent> <C-]> <Plug>(ale_next_wrap)
-"
-"" Show 5 lines of errors (default: 10)
-"let g:ale_list_window_size = 5
-"let g:ale_python_flake8_options = '--ignore=E129,E501,E302,E265,E241,E305,E402,W503,E266,E261,E303,E302'
 
 "PANDOC
 let g:pandoc#command#custom_open = 'MyPandocOpen'
@@ -203,4 +181,25 @@ endif
 
 let g:python3_host_prog='/home/aquamarine/.pyenv/versions/neovim3/bin/python'
 let g:python_host_prog='/home/aquamarine/.pyenv/versions/neovim2/bin/python'
+
+""ALE
+"let g:ale_linters = {
+"            \ 'c': ['clang'],
+"            \ 'python': ['flake8']
+"            \ }
+""\ 'cpp': ['clangtidy', 'cppcheck', 'cpp-lint', 'clang'],
+"let g:ale_python_flake8_executable = '~/.pyenv/versions/neovim3/bin/python'
+"let g:ale_python_flake8_use_global = 1
+""let g:ale_cpp_clang_options = '$(pkg-config --cflags --libs Qt5Widgets) -fPIC'
+"let g:ale_set_loclist = 0
+"let g:ale_set_quickfix = 1
+"let g:ale_open_list = 0
+"let g:ale_fix_on_save = 1
+"let g:ale_linters_explicit = 1
+"nmap <silent> <C-[> <Plug>(ale_previous_wrap)
+"nmap <silent> <C-]> <Plug>(ale_next_wrap)
+"
+"" Show 5 lines of errors (default: 10)
+"let g:ale_list_window_size = 5
+"let g:ale_python_flake8_options = '--ignore=E129,E501,E302,E265,E241,E305,E402,W503,E266,E261,E303,E302'
 

@@ -40,8 +40,6 @@
     },
     "diagnostic-languageserver.formatFiletypes": {
         "rust": "rustfmt",
-        "c": "clang-format",
-        "cpp": "clang-format",
         "python": "flake8"
     },
     "java.errors.incompleteClasspath.severity": "ignore"

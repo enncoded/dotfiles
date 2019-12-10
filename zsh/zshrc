@@ -1,3 +1,7 @@
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.zsh_history
+
 # Customize to your needs...
 alias c="clear"
 alias ls='ls --color=auto'
@@ -26,6 +30,7 @@ export PAGER='less'
 
 # other exports
 export obfus='/home/aquamarine/vbox shared/obfuscator/lib/Transforms/Obfuscation/'
+export QT_QPA_PLATFORMTHEME='qt5ct'
 
 # color for less and man
 export MANPAGER='less -s -M +Gg'
