@@ -45,7 +45,7 @@ type = internal/alsa
 
 ; Use volume mapping (similar to amixer -M and alsamixer), where the increase in volume is linear to the ear
 ; Default: false
-mapped = true
+mapped = false
 
 ; Interval for volume increase/decrease (in percent points)
 ; Default: 5
@@ -142,7 +142,7 @@ adapter = AC
 ; Disable polling by setting the interval to 0.
 ;
 ; Default: 5
-poll-interval = 2
+poll-interval = 5
 
 ; see "man date" for details on how to format the time string
 ; NOTE: if you want to use syntax tags here you need to use %%{...}
@@ -776,12 +776,12 @@ type = internal/pulseaudio
 ; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
 ; If not, uses default sink
 ;sink = alsa_output.pci-0000_12_00.3.analog-stereo
-;sink = jack_out
-sink = PCH
+sink = jack_out
+;sink = PCH
 
 ; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
 ; Default: true
-use-ui-max = true
+use-ui-max = false
 
 ; Interval for volume increase/decrease (in percent points)
 ; Default: 5

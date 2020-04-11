@@ -23,27 +23,6 @@ export VISUAL='nvim'
 export EDITOR=$VISUAL
 export PAGER='less'
 
-#
-# Language
-#
-
-#
-# Paths
-#
-export PATH=$PATH:~/bin
-export PATH=$PATH:~/.cargo/bin
-export PATH=$PATH:/usr/local/bin
-export PATH=$PATH:/opt/local/bin:/opt/local/sbin
-export PATH=$PATH:~/.local/bin/
-export PATH=$PATH:~/.gem/ruby/2.6.0/bin
-
-export PATH=$PATH:~/dotfiles/extra/utility
-export PATH=$PATH:~/dotfiles/extra/executor
-export PATH=~/venv/bin:$PATH
-export PATH="/home/aquamarine/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath PATH
 

@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
@@ -13,10 +20,11 @@ alias vi="nvim"
 alias vim="nvim"
 alias memcheck="valgrind --leak-check=full --show-reachable=yes"
 alias mpd="mpd ~/.config/mpd/mpd.conf"
-alias wrpi="mpv http://icecast1.wrpi.org:8000/mp3-320.mp3"
+alias wrpi="mpv --no-resume-playback http://icecast1.wrpi.org:8000/mp3-320.mp3"
 alias pro="cd ~/Programming"
 alias open="xdg-open"
 alias dsrc="ssh $DSERVER"
+alias zathura="zathura -c --fork ~/.config/zathura/zathurarc"
 #alias yay="yay --editmenu --nodiffmenu --save"
 #alias dock="sudo docker build -t=mcsema . && sudo docker run --rm -it --ipc=host -v "${PWD}":/home/user/local mcsema"
 
@@ -29,8 +37,7 @@ export EDITOR=$VISUAL
 export PAGER='less'
 
 # other exports
-export obfus='/home/aquamarine/vbox shared/obfuscator/lib/Transforms/Obfuscation/'
-export QT_QPA_PLATFORMTHEME='qt5ct'
+export FZF_DEFAULT_COMMAND='ag -u -g ""'
 
 # color for less and man
 export MANPAGER='less -s -M +Gg'
@@ -39,9 +46,18 @@ lesscolors=$HOME/bin/.LESS_TERMCAP
 [[ -f $lesscolors ]] && . $lesscolors
 
 # PATH
-# Set in ~/.zprofile
+export PATH=$PATH:~/bin
+export PATH=$PATH:~/.cargo/bin
+export PATH="/home/aquamarine/.pyenv/bin:$PATH"
+export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/opt/local/bin:/opt/local/sbin
+export PATH=$PATH:~/.local/bin/
+export PATH=$PATH:/home/aquamarine/.gem/ruby/2.7.0/bin
 
-#PROMPT='%F{green}%B%c%b%f '
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+
 export GPG_TTY=$(tty)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -53,8 +69,7 @@ precmd () {
     print -Pn "\e]0;%~\a"
 }
 
-autoload -U promptinit; promptinit
-prompt pure
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 autoload -U compinit
 compinit
@@ -66,4 +81,7 @@ export LESS_TERMCAP_so=$'\E[01;44;33m' # begin reverse video
 export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 

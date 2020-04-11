@@ -185,9 +185,6 @@ super + s
 super + shift + s
     /home/aquamarine/bin/scr -w
 
-super + j
-	notify-send "$~"
-
 # select emoji
 super + i
     rofimoji

@@ -3,7 +3,6 @@ if has('nvim') || has('termguicolors')
 endif
 
 colorscheme challenger_deep
-
 let g:challenger_deep_termcolors = 16
 
 set encoding=utf-8
@@ -18,7 +17,6 @@ Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-fugitive'
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'thaerkh/vim-indentguides'
-Plug 'tmhedberg/SimpylFold'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-vinegar'
 Plug 'airblade/vim-gitgutter'
@@ -31,8 +29,13 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'triglav/vim-visual-increment'
+Plug 'tpope/vim-surround'
+"Plug 'ludovicchabant/vim-gutentags'
 
 call plug#end()
+
+nnoremap <SPACE> <Nop>
+let mapleader = " "
 
 filetype plugin on
 
@@ -66,8 +69,27 @@ let g:session_autoload = 'no'
 set undofile
 set undodir=~/.vim/undodir
 
-"fzf
-nnoremap <silent> <C-p> :Files<CR>
+"FZF
+nnoremap <silent> <C-p> :GFiles<CR>
+
+" Search through git tracked files
+nmap <Leader>f :Files<CR>
+" Search through all files
+nmap <Leader>F :GFiles<CR>
+" Navigate open buffers
+nmap <Leader>b :Buffers<CR>
+" Search buffer history
+nmap <Leader>h :History<CR>
+" Search for tags in current buffer
+nmap <Leader>t :BTags<CR>
+" Search for tags in project
+nmap <Leader>T :Tags<CR>
+" Search for lines in current buffer
+nmap <Leader>l :BLines<CR>
+" Search for lines in all buffers
+nmap <Leader>L :Lines<CR>
+" Search through command history
+nmap <Leader>c :Commands<CR>
 
 " Default fzf layout
 " - down / up / left / right
@@ -100,21 +122,6 @@ let g:UltiSnipsJumpForwardTrigger   = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger  = "<c-k>"
 let g:UltiSnipsRemoveSelectModeMappings = 0
 
-"PANDOC
-let g:pandoc#command#custom_open = 'MyPandocOpen'
-" I use zathura, you might use something else
-function! MyPandocOpen(file)
-    return 'zathura ' . shellescape(expand(a:file,':p'))
-endfunction
-com PandocInsModeline :normal Go[modeline]: # ( vim: set ft=pandoc: )<ESC>
-let g:pandoc#biblio#sources = "bcg"
-let g:pandoc#filetypes#handled = ["pandoc"]
-let g:pandoc#filetypes#pandoc_markdown = 0
-let g:pandoc#formatting#mode = 'hA'
-let g:pandoc#command#autoexec_on_writes = 1
-let g:pandoc#command#autoexec_command = 'Pandoc pdf -s'
-com PandocOpen Pandoc! pdf -s
-
 "LIGHTLINE
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
@@ -125,7 +132,7 @@ let g:lightline = {
             \ 'active': {
             \   'left': [
             \     [ 'mode', 'paste' ],
-            \     [ 'ctrlpmark', 'git', 'diagnostic', 'cocstatus', 'filename', 'method' ]
+            \     [ 'git', 'diagnostic', 'cocstatus', 'filename', 'method' ]
             \   ],
             \   'right':[
             \     [ 'filetype', 'fileencoding', 'lineinfo', 'percent' ],
@@ -147,28 +154,29 @@ endfunction
 
 "GITGUTTER
 set updatetime=100
+let g:gitgutter_override_sign_column_highlight = 0
 
 "HELPING VIM WORK BETTER WITH GIT
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' "Highlight commit merge conflict markers
 
-"CTRL-P
-" Set no max file limit
-let g:ctrlp_max_files = 0
-" Search from current directory instead of project root
-let g:ctrlp_working_path_mode = 0
+""CTRL-P
+"" Set no max file limit
+"let g:ctrlp_max_files = 0
+"" Search from current directory instead of project root
+"let g:ctrlp_working_path_mode = 0
 
 "map F1 key to :w
 nmap <F1> :w<CR>
 imap <F1> <Esc>:w<CR>
 
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
-
-" Enable folding with the spacebar
-nnoremap <space> za
-" Show doctrings
-let g:SimpylFold_docstring_preview=1
+"" Enable folding
+"set foldmethod=indent
+"set foldlevel=99
+"
+"" Enable folding with the spacebar
+"nnoremap <space> za
+"" Show doctrings
+"let g:SimpylFold_docstring_preview=1
 
 "making sure mouse works correctly
 if !has('nvim')
@@ -179,27 +187,18 @@ if !has('nvim')
     end
 endif
 
-let g:python3_host_prog='/home/aquamarine/.pyenv/versions/neovim3/bin/python'
-let g:python_host_prog='/home/aquamarine/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog='/home/aquamarine/.pyenv/shims/python3'
+let g:python_host_prog='/home/aquamarine/.pyenv/shims/python2'
 
-""ALE
-"let g:ale_linters = {
-"            \ 'c': ['clang'],
-"            \ 'python': ['flake8']
-"            \ }
-""\ 'cpp': ['clangtidy', 'cppcheck', 'cpp-lint', 'clang'],
-"let g:ale_python_flake8_executable = '~/.pyenv/versions/neovim3/bin/python'
-"let g:ale_python_flake8_use_global = 1
-""let g:ale_cpp_clang_options = '$(pkg-config --cflags --libs Qt5Widgets) -fPIC'
-"let g:ale_set_loclist = 0
-"let g:ale_set_quickfix = 1
-"let g:ale_open_list = 0
-"let g:ale_fix_on_save = 1
-"let g:ale_linters_explicit = 1
-"nmap <silent> <C-[> <Plug>(ale_previous_wrap)
-"nmap <silent> <C-]> <Plug>(ale_next_wrap)
-"
-"" Show 5 lines of errors (default: 10)
-"let g:ale_list_window_size = 5
-"let g:ale_python_flake8_options = '--ignore=E129,E501,E302,E265,E241,E305,E402,W503,E266,E261,E303,E302'
+" GUTENTAGS
+"let g:gutentags_add_default_project_roots = 0 
+"let g:gutentags_project_root = ['package.json', 'Cargo.toml', '.git']
+"let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
+"let g:gutentags_generate_on_write = 1
+"let g:gutentags_generate_on_new = 1
+"let g:gutentags_generate_on_missing = 1
+"let g:gutentags_generate_on_write = 1
+"let g:gutentags_generate_on_empty_buffer = 0
+"let g:gutentags_ctags_extra_args = ['--tag-relative=yes', '--fields=+ailmnS']
+"let g:gutentags_ctags_exclude = ['.git', '.svg', '.hg','/tests/', 'build', 'dist', 'sites//files/', 'bin', 'node_modules', 'bower_components', 'cache', 'compiled', 'docs', 'example', 'bundle', 'vendor', '.md', '-lock.json', '.lock', 'bundle.js', 'build.js', '.rc', '.json', '.min.', '.map', '.bak', '.zip', '.pyc', '.class', '.sln', '.Master', '.csproj', '.tmp', '.csproj.user', '.cache', '.pdb', 'tags', 'cscope.', '.css', '.less', '.scss', '.exe', '.dll', '.mp3', '.ogg', '.flac', '.swp', '.swo', '.bmp', '.gif', '.ico', '.jpg', '.png', '.rar', '.zip', '.tar', '.tar.gz', '.tar.xz', '.tar.bz2', '.pdf', '.doc', '.docx', '.ppt', '.pptx']
 

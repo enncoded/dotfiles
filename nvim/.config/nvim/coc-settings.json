@@ -1,7 +1,9 @@
 {
+    "python.pythonPath":"~/.pyenv/shims/python",
+    "python.jediEnabled": false,
     "coc.preferences.snippets.enable": true,
     "coc.source.ultisnips.enable": true,
-    "coc.preferences.formatOnSaveFiletypes": ["rust", "cpp", "c", "python"],
+    "coc.preferences.formatOnSaveFiletypes": ["cpp", "c", "python"],
     "list.normalMappings": {
         "t": "action:tabe",
         "v": "action:vsplit",
@@ -12,35 +14,14 @@
         "<C-t>": "action:tabe",
         "<C-w>": "command:wincmd k"
     },
-
-    "languageserver": {
-        "ccls": {
-            "command": "ccls",
-            "filetypes": ["c", "cpp", "objc", "objcpp"],
-            "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-            "initializationOptions": {
-                "cache": {
-                    "directory": "/tmp/ccls"
-                }
-            }
-        },
-        "flake8": {
-            "command": "flake8",
-            "filetypes": ["py"]
-        }
-    },
     // diagnostic-languageserver
     "diagnostic-languageserver.filetypes": {
         "markdown": [ "write-good", "markdownlint" ],
         "sh": "shellcheck",
         "rust": "rls",
-        "c": "ccls",
-        "cpp": "ccls",
-        "python": "flake8"
+        "python": "pyls"
     },
     "diagnostic-languageserver.formatFiletypes": {
-        "rust": "rustfmt",
         "python": "flake8"
-    },
-    "java.errors.incompleteClasspath.severity": "ignore"
+    }
 }
