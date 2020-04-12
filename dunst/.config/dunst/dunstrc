@@ -1,0 +1,55 @@
+[global]
+#font = UW Ttyp0 10
+font = Roboto Condensed 10
+markup = yes
+format = "%s %b"
+sort = yes
+indicate_hidden = no 
+alignment = center
+bounce_freq = 0
+show_age_threshold = 1000
+word_wrap = no
+ignore_newline = yes
+geometry = "1200x18-5+35"
+shrink = yes 
+transparency = 0
+idle_threshold = 10
+monitor = 0
+follow = mouse
+sticky_history = yes
+history_length = 2 
+show_indicators = yes
+line_height = 20
+separator_height = 5
+padding = 10 
+horizontal_padding = 10
+separator_color = frame
+startup_notification = false
+frame_width = 2
+frame_color = "#121c21"
+
+[shortcuts]
+close = ctrl+space
+close_all = ctrl+shift+space
+history = ctrl+grave
+context = ctrl+shift+period
+
+[urgency_low]
+background = "#2c3539"
+foreground = "#c4c4b5"
+frame_color = "#8bc34a"
+timeout = 10
+
+[urgency_normal]
+background = "#2c3539"
+foreground = "#c4c4b5"
+frame_color = "#ba68c8"
+timeout = 10
+
+[urgency_critical]
+background = "#2c3539"
+foreground = "#c4c4b5"
+frame_color = "#ff7043"
+timeout = 10
+
+# vim: ft=cfg
