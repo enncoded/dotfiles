@@ -21,10 +21,9 @@ alias vim="nvim"
 alias memcheck="valgrind --leak-check=full --show-reachable=yes"
 alias mpd="mpd ~/.config/mpd/mpd.conf"
 alias wrpi="mpv --no-resume-playback http://icecast1.wrpi.org:8000/mp3-320.mp3"
-alias pro="cd ~/Programming"
 alias open="xdg-open"
-alias dsrc="ssh $DSERVER"
 alias zathura="zathura -c --fork ~/.config/zathura/zathurarc"
+alias virtualcam='ffmpeg -f x11grab -r 15 -s 1920x1080 -i :0.0+0,0 -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video2'
 #alias yay="yay --editmenu --nodiffmenu --save"
 #alias dock="sudo docker build -t=mcsema . && sudo docker run --rm -it --ipc=host -v "${PWD}":/home/user/local mcsema"
 
@@ -48,21 +47,24 @@ lesscolors=$HOME/bin/.LESS_TERMCAP
 # PATH
 export PATH=$PATH:~/bin
 export PATH=$PATH:~/.cargo/bin
-export PATH="/home/aquamarine/.pyenv/bin:$PATH"
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:/opt/local/bin:/opt/local/sbin
 export PATH=$PATH:~/.local/bin/
 export PATH=$PATH:/home/aquamarine/.gem/ruby/2.7.0/bin
+export PATH=$PATH:/home/aquamarine/.pyenv/bin
+#export PATH=/home/aquamarine/.pyenv/shims:$PATH
+
+export XDG_DATA_DIRS=$XDG_DATA_DIRS:/var/lib/flatpak/exports/share
+export XDG_DATA_DIRS=$XDG_DATA_DIRS:/home/aquamarine/.local/share/flatpak/exports/share
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-
 
 export GPG_TTY=$(tty)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # set title on terminal spawn
 precmd () {
@@ -84,4 +86,6 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+unset SSH_ASKPASS
 

@@ -67,3 +67,5 @@ xrdb -merge /home/aquamarine/.Xresources
 
 source /home/aquamarine/websites
 
+export PATH="$HOME/.cargo/bin:$PATH"
+

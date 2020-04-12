@@ -28,9 +28,6 @@ window:
       x: 15
       y: 15
 
-# Display tabs using this many cells (changes require restart)
-tabspaces: 4
-
 # When true, bold text is drawn using the bright variant of colors.
 draw_bold_text_with_bright_colors: false
 
@@ -111,6 +108,7 @@ colors:
     yellow:  '0xffe9aa'
     blue:    '0x91ddff'
     magenta: '0xc991e1'
+#magenta: '0xffb0c1'
     cyan:    '0xaaffe4'
     white:   '0xcbe3e7'
 
@@ -122,6 +120,7 @@ colors:
     yellow:  '0xffb378'
     blue:    '0x65b2ff'
     magenta: '0x906cff'
+#magenta: '0xffb0c1'
     cyan:    '0x63f2f1'
     white:   '0xa6b3cc'
 

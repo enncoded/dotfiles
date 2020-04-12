@@ -17,7 +17,7 @@ ibus-daemon -drx &
 ~/.config/polybar/launch.sh &
 transmission-daemon &
 cadence-session-start --system-start &
-~/.config/polybar/scripts/spotify/py_spotify_listener.py &
+~/.config/polybar/scripts/spotify_status.py &
 zeal &
 sxhkd &
 

@@ -3,7 +3,7 @@
     "python.jediEnabled": false,
     "coc.preferences.snippets.enable": true,
     "coc.source.ultisnips.enable": true,
-    "coc.preferences.formatOnSaveFiletypes": ["cpp", "c", "python"],
+    //"coc.preferences.formatOnSaveFiletypes": ["cpp", "c", "python"],
     "list.normalMappings": {
         "t": "action:tabe",
         "v": "action:vsplit",
