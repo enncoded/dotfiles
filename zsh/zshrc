@@ -10,20 +10,21 @@ SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
 # Customize to your needs...
-alias c="clear"
+alias c='clear'
 alias ls='ls --color=auto'
-alias la="ls -la"
-alias fetch="neofetch"
-alias shutdown="sudo poweroff"
-alias logoff="sudo pkill -u aquamarine"
-alias vi="nvim"
-alias vim="nvim"
-alias memcheck="valgrind --leak-check=full --show-reachable=yes"
-alias mpd="mpd ~/.config/mpd/mpd.conf"
-alias wrpi="mpv --no-resume-playback http://icecast1.wrpi.org:8000/mp3-320.mp3"
-alias open="xdg-open"
+alias la='ls -la'
+alias fetch='neofetch'
+alias shutdown='sudo poweroff'
+alias logoff='sudo pkill -u aquamarine'
+alias vi='nvim'
+alias vim='nvim'
+alias memcheck='valgrind --leak-check=full --show-reachable=yes'
+alias mpd='mpd ~/.config/mpd/mpd.conf'
+alias wrpi='mpv --no-resume-playback http://icecast1.wrpi.org:8000/mp3-320.mp3'
+alias open='xdg-open'
 alias zathura="zathura -c --fork ~/.config/zathura/zathurarc"
-alias virtualcam='ffmpeg -f x11grab -r 15 -s 1920x1080 -i :0.0+0,0 -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video2'
+alias virtualcam='ffmpeg -f x11grab -r 15 -s 1920x1080 -i :0.0+0,0 -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video0'
+alias ssh='TERM=xterm-256color ssh'
 #alias yay="yay --editmenu --nodiffmenu --save"
 #alias dock="sudo docker build -t=mcsema . && sudo docker run --rm -it --ipc=host -v "${PWD}":/home/user/local mcsema"
 
@@ -45,9 +46,9 @@ lesscolors=$HOME/bin/.LESS_TERMCAP
 [[ -f $lesscolors ]] && . $lesscolors
 
 # PATH
-export PATH=$PATH:~/bin
-export PATH=$PATH:~/.cargo/bin
-export PATH=$PATH:/usr/local/bin
+export PATH=~/bin:$PATH
+export PATH=~/.cargo/bin:$PATH
+export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:/opt/local/bin:/opt/local/sbin
 export PATH=$PATH:~/.local/bin/
 export PATH=$PATH:/home/aquamarine/.gem/ruby/2.7.0/bin

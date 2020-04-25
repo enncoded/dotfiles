@@ -69,3 +69,5 @@ source /home/aquamarine/websites
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
+eval "$(pyenv init -)"
+

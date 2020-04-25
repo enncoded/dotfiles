@@ -1,9 +1,10 @@
 {
     "python.pythonPath":"~/.pyenv/shims/python",
     "python.jediEnabled": false,
+    "javascript.format.enabled": true,
     "coc.preferences.snippets.enable": true,
     "coc.source.ultisnips.enable": true,
-    //"coc.preferences.formatOnSaveFiletypes": ["cpp", "c", "python"],
+    "coc.preferences.formatOnSaveFiletypes": ["cpp", "c", "python", "javascript"],
     "list.normalMappings": {
         "t": "action:tabe",
         "v": "action:vsplit",

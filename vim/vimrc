@@ -30,6 +30,7 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'triglav/vim-visual-increment'
 Plug 'tpope/vim-surround'
+Plug 'liuchengxu/vista.vim'
 "Plug 'ludovicchabant/vim-gutentags'
 
 call plug#end()
@@ -122,35 +123,47 @@ let g:UltiSnipsJumpForwardTrigger   = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger  = "<c-k>"
 let g:UltiSnipsRemoveSelectModeMappings = 0
 
+"VISTA
+" How each level is indented and what to prepend.
+" This could make the display more compact or more spacious.
+" e.g., more compact: ["▸ ", ""]
+" Note: this option only works the LSP executives, doesn't work for `:Vista ctags`.
+"let g:vista_icon_indent = ["▸ ", ""]
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+
+" Executive used when opening vista sidebar without specifying it.
+" See all the avaliable executives via `:echo g:vista#executives`.
+let g:vista_default_executive = 'coc'
+
+" To enable fzf's preview window set g:vista_fzf_preview.
+" The elements of g:vista_fzf_preview will be passed as arguments to fzf#vim#with_preview()
+" For example:
+let g:vista_fzf_preview = ['right:50%']
+
+let g:vista#renderer#enable_icon = 1
+
 "LIGHTLINE
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
 endfunction
 
 let g:lightline = {
-            \ 'colorscheme': 'challenger_deep',
-            \ 'active': {
-            \   'left': [
-            \     [ 'mode', 'paste' ],
-            \     [ 'git', 'diagnostic', 'cocstatus', 'filename', 'method' ]
-            \   ],
-            \   'right':[
-            \     [ 'filetype', 'fileencoding', 'lineinfo', 'percent' ],
-            \     [ 'blame' ]
-            \   ],
-            \ },
-            \ 'component_function': {
-            \   'cocstatus': 'coc#status',
-            \   'currentfunction': 'CocCurrentFunction',
-            \   'blame': 'LightlineGitBlame'
-            \ },
-            \ }
-
-function! LightlineGitBlame() abort
-    let blame = get(b:, 'coc_git_blame', '')
-    " return blame
-    return winwidth(0) > 120 ? blame : ''
-endfunction
+        \ 'colorscheme': 'challenger_deep',
+        \ 'active': {
+        \   'left': [
+        \     [ 'mode', 'paste' ],
+        \     [ 'gitbranch', 'diagnostic', 'filename', 'method', 'currentfunction' ]
+        \   ],
+        \   'right':[
+        \     [ 'filetype', 'fileencoding', 'lineinfo', 'percent' ],
+        \   ],
+        \ },
+        \ 'component_function': {
+        \   'cocstatus': 'coc#status',
+        \   'currentfunction': 'CocCurrentFunction',
+        \   'gitbranch': 'FugitiveHead',
+        \ },
+    \ }
 
 "GITGUTTER
 set updatetime=100
@@ -187,8 +200,8 @@ if !has('nvim')
     end
 endif
 
-let g:python3_host_prog='/home/aquamarine/.pyenv/shims/python3'
-let g:python_host_prog='/home/aquamarine/.pyenv/shims/python2'
+let g:python3_host_prog='/home/aquamarine/.pyenv/versions/neovim3/bin/python3'
+let g:python_host_prog='/home/aquamarine/.pyenv/versions/neovim2/bin/python2'
 
 " GUTENTAGS
 "let g:gutentags_add_default_project_roots = 0 

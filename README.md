@@ -2,11 +2,11 @@
 Linux config files managed using GNU stow.
 
 # my setup
-* arch
+* arch/fedora
 * bspwm
 * polybar
 * alacritty
-* neovim (pure prompt)
+* neovim (powerline 10k pure prompt)
 
 # images
 ![Image 1](https://i.imgur.com/MA2ldST.png)

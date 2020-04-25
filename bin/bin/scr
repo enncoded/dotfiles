@@ -17,7 +17,7 @@ if [ $arg -eq 0 ]; then
     filename="$(date +%s).png"
     filepath="/home/aquamarine/Screenshots/$filename"
     mv "$origpath" "$filepath"
-    /home/aquamarine/bin/updong "$filepath" images
+    updong "$filepath" images
 else
     notify-send Screenshot failed.
     exit 1
