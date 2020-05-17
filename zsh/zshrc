@@ -22,11 +22,10 @@ alias memcheck='valgrind --leak-check=full --show-reachable=yes'
 alias mpd='mpd ~/.config/mpd/mpd.conf'
 alias wrpi='mpv --no-resume-playback http://icecast1.wrpi.org:8000/mp3-320.mp3'
 alias open='xdg-open'
-alias zathura="zathura -c --fork ~/.config/zathura/zathurarc"
-alias virtualcam='ffmpeg -f x11grab -r 15 -s 1920x1080 -i :0.0+0,0 -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video0'
+#alias zathura='zathura -c ~/.config/zathura/zathurarc --fork'
+alias zathura='zathura --fork'
+alias virtualcam='ffmpeg -f x11grab -r 30 -s 1920x1080 -i :0.0+0,0 -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video0'
 alias ssh='TERM=xterm-256color ssh'
-#alias yay="yay --editmenu --nodiffmenu --save"
-#alias dock="sudo docker build -t=mcsema . && sudo docker run --rm -it --ipc=host -v "${PWD}":/home/user/local mcsema"
 
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
