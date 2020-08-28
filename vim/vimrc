@@ -2,10 +2,9 @@ if has('nvim') || has('termguicolors')
     set termguicolors
 endif
 
-colorscheme challenger_deep
-let g:challenger_deep_termcolors = 16
-
 set encoding=utf-8
+
+colorscheme lena
 
 call plug#begin('~/.vim/plugged')
 
@@ -15,7 +14,6 @@ Plug 'wellle/targets.vim'
 Plug 'machakann/vim-sandwich'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-fugitive'
-Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'thaerkh/vim-indentguides'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-vinegar'
@@ -33,6 +31,8 @@ Plug 'tpope/vim-surround'
 "Plug 'ludovicchabant/vim-gutentags'
 
 call plug#end()
+
+set clipboard=unnamedplus
 
 nnoremap <SPACE> <Nop>
 let mapleader = " "
@@ -127,8 +127,10 @@ function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
 endfunction
 
+
+"\ 'colorscheme': 'challenger_deep',
 let g:lightline = {
-        \ 'colorscheme': 'challenger_deep',
+        \ 'colorscheme': 'lena',
         \ 'active': {
         \   'left': [
         \     [ 'mode', 'paste' ],
@@ -180,8 +182,8 @@ if !has('nvim')
     end
 endif
 
-let g:python3_host_prog='/home/aquamarine/.pyenv/versions/neovim3/bin/python3'
-let g:python_host_prog='/home/aquamarine/.pyenv/versions/neovim2/bin/python2'
+let g:python3_host_prog='~/.pyenv/versions/neovim3/bin/python3'
+let g:python_host_prog='~/.pyenv/versions/neovim2/bin/python2'
 
 " GUTENTAGS
 "let g:gutentags_add_default_project_roots = 0 

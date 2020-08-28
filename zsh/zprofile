@@ -63,11 +63,9 @@ XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CONFIG_HOME
 export HISTFILE="~/.zhistory"
 
-xrdb -merge /home/aquamarine/.Xresources
+xrdb -merge ~/.Xresources
 
-source /home/aquamarine/websites
+source ~/websites
 
 export PATH="$HOME/.cargo/bin:$PATH"
-
-eval "$(pyenv init -)"
 

@@ -37,6 +37,7 @@ export PAGER='less'
 
 # other exports
 export FZF_DEFAULT_COMMAND='ag -u -g ""'
+export MOZ_X11_EGL=1 # For firefox  x11-vaapi on firefox
 
 # color for less and man
 export MANPAGER='less -s -M +Gg'
@@ -50,15 +51,18 @@ export PATH=~/.cargo/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:/opt/local/bin:/opt/local/sbin
 export PATH=$PATH:~/.local/bin/
-export PATH=$PATH:/home/aquamarine/.gem/ruby/2.7.0/bin
-export PATH=$PATH:/home/aquamarine/.pyenv/bin
-#export PATH=/home/aquamarine/.pyenv/shims:$PATH
+export PATH=$PATH:~/.gem/ruby/2.7.0/bin
+export PATH=$PATH:~/.pyenv/bin
+export PATH=$PATH:~/.rbenv/bin
+#export PATH=~/.rbenv/shims:$PATH
+#export PATH=~/.pyenv/shims:$PATH
 
 export XDG_DATA_DIRS=$XDG_DATA_DIRS:/var/lib/flatpak/exports/share
-export XDG_DATA_DIRS=$XDG_DATA_DIRS:/home/aquamarine/.local/share/flatpak/exports/share
+export XDG_DATA_DIRS=$XDG_DATA_DIRS:~/.local/share/flatpak/exports/share
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+eval "$(rbenv init -)"
 
 export GPG_TTY=$(tty)
 
