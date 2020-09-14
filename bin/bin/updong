@@ -3,9 +3,9 @@
 # $1 = filepath
 # $2 = location on server
 
-source /home/aquamarine/websites
+source ~/websites
 
-scp -i "/home/aquamarine/.ssh/$SSHKEY" "$1" "gamer@$WEBSITE:$2"
+scp -i "~/.ssh/$SSHKEY" "$1" "gamer@$WEBSITE:$2"
 
 filename=$(basename -- "$1")
 echo "filename: $filename"

@@ -1,0 +1,79 @@
+[line_break]
+disabled = true
+
+[aws]
+symbol = " "
+disabled = true
+
+[battery]
+full_symbol = ""
+charging_symbol = ""
+discharging_symbol = ""
+disabled = true
+
+[conda]
+symbol = " "
+disabled = true
+
+[docker]
+symbol = " "
+
+[elixir]
+symbol = " "
+disabled = true
+
+[elm]
+symbol = " "
+disabled = true
+
+[git_branch]
+symbol = " "
+
+[golang]
+symbol = " "
+disabled = true
+
+[haskell]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+disabled = true
+
+[memory_usage]
+symbol = " "
+disabled = true
+
+[nim]
+symbol = " "
+disabled = true
+
+[nix_shell]
+symbol = " "
+disabled = true
+
+[nodejs]
+symbol = " "
+
+[package]
+symbol = " "
+
+[php]
+symbol = " "
+disabled = true
+
+[python]
+symbol = " "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+

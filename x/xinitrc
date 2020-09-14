@@ -52,5 +52,5 @@ ibus-daemon -drx &
 
 redshift &
 
-exec bspwm
+#exec bspwm
 

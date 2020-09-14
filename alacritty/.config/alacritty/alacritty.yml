@@ -53,19 +53,19 @@ draw_bold_text_with_bright_colors: false
 font:
   # The normal (roman) font face to use.
   normal:
-    family: "Hack Nerd Font" # should be "Menlo" or something on macOS.
+    family: "Hack Nerd Font Mono" # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
     style: Regular
 
   # The bold font face
   bold:
-    family: "Hack Nerd Font" # should be "Menlo" or something on macOS.
+    family: "Hack Nerd Font Mono" # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
     style: Bold
 
   # The italic font face
   italic:
-    family: "Hack Nerd Font" # should be "Menlo" or something on macOS.
+    family: "Hack Nerd Font Mono" # should be "Menlo" or something on macOS.
     # Style can be specified to pick a specific face.
     style: Italic
 
@@ -93,64 +93,94 @@ font:
 # Should display the render timer
 # render_timer: false
 
+colors:
+  # Default colors
+  primary:
+    background: '0x13151a'
+    foreground: '0xffffff'
+
+  # Normal colors
+  normal:
+    black:   '0x242d35'
+    red:     '0xff8888'
+    green:   '0x2dff8a'
+    yellow:  '0xffff88'
+    blue:    '0x48c7fa'
+    magenta: '0xc574dd'
+    cyan:    '0xb0ffee'
+    white:   '0xffffff'
+
+  # Bright colors
+  bright:
+    black:   '0x242d35'
+    red:     '0xff8888'
+    green:   '0x2dff8a'
+    yellow:  '0xffff88'
+    blue:    '0x48c7fa'
+    magenta: '0xc574dd'
+    cyan:    '0xb0ffee'
+    white:   '0xffffff'
+
 #colors:
 #  # Default colors
 #  primary:
-#    background: '0x373e4d'
-#    foreground: '0xedfefe'
+#    background: '0x1a2026'
+#    foreground: '0xffffff'
 #
 #  # Normal colors
 #  normal:
-#    black:   '0x373e4d'
-#    red:     '0xfa5aa4'
-#    green:   '0x2be491'
-#    yellow:  '0xfa946e'
-#    blue:    '0x63c5ea'
-#    magenta: '0xcf8ef4'
-#    cyan:    '0x89ccf7'
-#    white:   '0xedfefe'
+#    black:   '0x242d35'
+#    red:     '0xfb6396'
+#    green:   '0x94cf95'
+#    yellow:  '0xffb0c1'
+#    blue:    '0x6ec1d6'
+#    magenta: '0xcd84c8'
+#    cyan:    '0x7fe4d2'
+#    white:   '0xffffff'
 #
 #  # Bright colors
 #  bright:
-#    black:   '0x3b4252'
-#    red:     '0xfa74b2'
-#    green:   '0x44eb9f'
-#    yellow:  '0xfaa687'
-#    blue:    '0x7acbea'
-#    magenta: '0xd8a6f4'
-#    cyan:    '0xa1d5f7'
-#    white:   '0xdde5e6'
+#    black:   '0x526170'
+#    red:     '0xf92d72'
+#    green:   '0x6ccb6e'
+#    yellow:  '0xf26190'
+#    blue:    '0x4cb9d6'
+#    magenta: '0xc269bc'
+#    cyan:    '0x58d6bf'
+#    white:   '0xf4f5f2'
 
-# Challenger Deep
-colors:
-# Default colors
-  primary:
-    background: '0x1e1c31'
-    foreground: '0xcbe3e7'
-
-# Normal colors
-  normal:
-    black:   '0x565575'
-    red:     '0xff8080'
-    green:   '0x95ffa4'
-    yellow:  '0xffe9aa'
-    blue:    '0x91ddff'
-    magenta: '0xc991e1'
-#magenta: '0xffb0c1'
-    cyan:    '0xaaffe4'
-    white:   '0xcbe3e7'
-
-# Bright colors
-  bright:
-    black:   '0x100e23'
-    red:     '0xff5458'
-    green:   '0x62d196'
-    yellow:  '0xffb378'
-    blue:    '0x65b2ff'
-    magenta: '0x906cff'
-#magenta: '0xffb0c1'
-    cyan:    '0x63f2f1'
-    white:   '0xa6b3cc'
+### Challenger Deep
+#colors:
+## Default colors
+#  primary:
+#    background: '0x1a2026'
+##background: '0x1e1c31'
+#    foreground: '0xcbe3e7'
+#
+## Normal colors
+#  normal:
+#    black:   '0x565575'
+#    red:     '0xff8080'
+#    green:   '0x95ffa4'
+#    yellow:  '0xffe9aa'
+#    blue:    '0x91ddff'
+##magenta: '0xc991e1'
+#    magenta: '0xffb0c1'
+#    cyan:    '0xaaffe4'
+#    white:   '0xcbe3e7'
+#
+## Bright colors
+#  bright:
+#    black:   '0x100e23'
+#    red:     '0xff5458'
+#    green:   '0x62d196'
+#    yellow:  '0xffb378'
+#    blue:    '0x65b2ff'
+##    magenta: '0x906cff'
+#    magenta: '0xffb0c1'
+##cyan:    '0x63f2f1'
+#    cyan:    '0xb0ffee'
+#    white:   '0xa6b3cc'
 
 # Visual Bell
 #
