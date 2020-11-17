@@ -17,3 +17,4 @@ echo -n "$url" | xclip -selection clipboard
 notify-send "$url"
 
 exit 0
+

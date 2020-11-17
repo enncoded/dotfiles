@@ -1,0 +1,3 @@
+clear      mod3
+keycode      37 = Hyper_L
+add        mod3 = Hyper_L

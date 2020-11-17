@@ -4,10 +4,11 @@ endif
 
 set encoding=utf-8
 
-colorscheme lena
+colorscheme embark
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'embark-theme/vim', { 'as': 'embark' }
 Plug 'itchyny/lightline.vim'
 Plug 'unblevable/quick-scope'
 Plug 'wellle/targets.vim'
@@ -24,10 +25,11 @@ Plug 'junegunn/fzf.vim'
 Plug 'Shougo/echodoc.vim'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'triglav/vim-visual-increment'
 Plug 'tpope/vim-surround'
+Plug 'justinmk/vim-sneak'
 "Plug 'ludovicchabant/vim-gutentags'
 
 call plug#end()
@@ -62,20 +64,22 @@ set relativenumber
 "set matchpairs+=<:>
 
 set mouse=a
-
 let g:session_autoload = 'no'
 
 " Persistent undo
 set undofile
 set undodir=~/.vim/undodir
 
+"Sneak
+map f <Plug>Sneak_s
+map F <Plug>Sneak_S
+let g:sneak#label = 1
+
 "FZF
 nnoremap <silent> <C-p> :GFiles<CR>
 
 " Search through git tracked files
 nmap <Leader>f :Files<CR>
-" Search through all files
-nmap <Leader>F :GFiles<CR>
 " Navigate open buffers
 nmap <Leader>b :Buffers<CR>
 " Search buffer history
@@ -94,6 +98,8 @@ nmap <Leader>c :Commands<CR>
 " Default fzf layout
 " - down / up / left / right
 let g:fzf_layout = { 'down': '~30%' }
+
+nnoremap <C-g> :Rg<Cr>
 
 "ECHODOC
 set cmdheight=2
@@ -118,8 +124,8 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 "smap <c-u> <Plug>(ultisnips_expand)
 imap <c-u> <Plug>(ultisnips_expand)
 let g:UltiSnipsExpandTrigger        = "<Plug>(ultisnips_expand)"
-let g:UltiSnipsJumpForwardTrigger   = "<c-j>"
-let g:UltiSnipsJumpBackwardTrigger  = "<c-k>"
+"let g:UltiSnipsJumpForwardTrigger   = "<c-j>"
+"let g:UltiSnipsJumpBackwardTrigger  = "<c-k>"
 let g:UltiSnipsRemoveSelectModeMappings = 0
 
 "LIGHTLINE
@@ -127,9 +133,8 @@ function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
 endfunction
 
-"\ 'colorscheme': 'challenger_deep',
 let g:lightline = {
-        \ 'colorscheme': 'lena',
+        \ 'colorscheme': 'embark',
         \ 'active': {
         \   'left': [
         \     [ 'mode', 'paste' ],
@@ -152,12 +157,6 @@ let g:gitgutter_override_sign_column_highlight = 0
 
 "HELPING VIM WORK BETTER WITH GIT
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' "Highlight commit merge conflict markers
-
-""CTRL-P
-"" Set no max file limit
-"let g:ctrlp_max_files = 0
-"" Search from current directory instead of project root
-"let g:ctrlp_working_path_mode = 0
 
 "map F1 key to :w
 nmap <F1> :w<CR>
