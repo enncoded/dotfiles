@@ -1,8 +1,0 @@
-#!/usr/bin/env zsh
-
-cd ~/Aris/git/
-~/.cargo/bin/wasm-pack build --target web --out-dir static/pkg -- --features=js
-
-cd ~/Aris/git/static/
-python -m http.server
-
