@@ -1,3 +1,6 @@
+local cmd = vim.cmd
+local fn = vim.fn
+
 cmd 'packadd paq-nvim'
 
 local paq = require('paq-nvim').paq
@@ -32,4 +35,6 @@ paq{'nvim-treesitter/nvim-treesitter'}
 paq{'akinsho/bufferline.nvim'}
 --paq{'shougo/deoplete-lsp'}
 paq{'shougo/deoplete.nvim', run = fn['remote#host#UpdateRemotePlugins']}
+paq{'nvim-telescope/telescope-fzy-native.nvim'}
+paq{'SmiteshP/nvim-gps'}
 

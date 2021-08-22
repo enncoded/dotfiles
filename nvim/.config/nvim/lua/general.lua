@@ -32,7 +32,7 @@ opt.mouse = 'a'
 g['session_autoload'] = 'no'
 
 opt.undofile = true
-opt.undodir = '~/.vim/undodir'
+opt.undodir = '/home/enno/.vim/undodir'
 
 g['python_host_prog'] = '~/.pyenv/versions/neovim2/bin/python2'
 g['python3_host_prog'] = '~/.pyenv/versions/neovim3/bin/python3'

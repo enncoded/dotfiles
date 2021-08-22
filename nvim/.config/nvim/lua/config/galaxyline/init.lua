@@ -59,7 +59,19 @@ gls.left[4] = {
   }
 }
 
+local gps = require('nvim-gps')
 gls.left[5] = {
+    nvimGPS = {
+        provider = function()
+            return gps.get_location()
+        end,
+        condition = function()
+            return gps.is_available()
+        end
+    }
+}
+
+gls.left[6] = {
   DiagnosticError = {
     provider = 'DiagnosticError',
     icon = '  ',
@@ -67,7 +79,7 @@ gls.left[5] = {
   }
 }
 
-gls.left[6] = {
+gls.left[7] = {
   DiagnosticWarn = {
     provider = 'DiagnosticWarn',
     icon = '  ',
@@ -75,7 +87,7 @@ gls.left[6] = {
   }
 }
 
-gls.left[7] = {
+gls.left[8] = {
   DiagnosticHint = {
     provider = 'DiagnosticHint',
     icon = '  ',
@@ -83,7 +95,7 @@ gls.left[7] = {
   }
 }
 
-gls.left[8] = {
+gls.left[9] = {
   DiagnosticInfo = {
     provider = 'DiagnosticInfo',
     icon = '  ',
@@ -115,7 +127,7 @@ gls.right[3] = {
     condition = condition.hide_in_width,
     separator = ' ',
     separator_highlight = {'NONE',colors.bg},
-    highlight = {colors.green,colors.bg,'bold'},
+    highlight = {colors.magenta,colors.bg,'bold'},
     icon = ' '
   }
 }
@@ -126,7 +138,7 @@ gls.right[4] = {
     condition = condition.hide_in_width,
     separator = ' ',
     separator_highlight = {'NONE',colors.bg},
-    highlight = {colors.green,colors.bg,'bold'}
+    highlight = {colors.magenta,colors.bg,'bold'}
   }
 }
 
@@ -136,6 +148,8 @@ gls.right[5] = {
     condition = condition.hide_in_width,
     icon = '  ',
     highlight = {colors.green,colors.bg},
+    separator = ' ',
+    separator_highlight = {'NONE',colors.bg},
   }
 }
 
@@ -167,7 +181,8 @@ gls.right[8] = {
       end
       return true
     end,
-    separator = '  ',
+    separator = ' ',
+    separator_highlight = {'NONE',colors.bg},
     icon = ' ',
     highlight = {colors.cyan,colors.bg,'bold'}
   }
@@ -185,7 +200,6 @@ gls.short_line_left[1] = {
 gls.short_line_right[2] = {
   BufferIcon = {
     provider= 'BufferIcon',
-    highlight = {colors.fg,colors.bg}
   }
 }
 
