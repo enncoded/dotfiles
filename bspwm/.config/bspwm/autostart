@@ -3,7 +3,7 @@
 #~/bin/start_jack &
 ~/.fehbg &
 keepassxc &
-firefox-nightly &
+firefox &
 alacritty &
 discord &
 thunderbird &
@@ -15,9 +15,7 @@ nm-applet &
 picom &
 ibus-daemon -drx &
 ~/.config/polybar/launch.sh &
-transmission-daemon &
-cadence-session-start --system-start &
 ~/.config/polybar/scripts/spotify_status.py &
 zeal &
-sxhkd &
+sxhkd
 

@@ -17,10 +17,10 @@ XF86MonBrightnessUp
 # volume control
 # quieter
 XF86AudioLowerVolume
-    amixer set Master 2%-
+    amixer set Master 1%-
 # louder
 XF86AudioRaiseVolume
-    amixer set Master 2%+
+    amixer set Master 1%+
 # mute
 XF86AudioMute
     amixer sset Master,0 toggle
@@ -31,14 +31,14 @@ super + Return
 
 # program launcher
 super + @space
-    rofi -show run
+    rofi -show drun
 
 # lockscreen
 super + x
     betterlockscreen -l blur
 
 # suspend
-super + shift+ x
+super + shift + x
     systemctl suspend
 
 # make sxhkd reload its configuration files:
@@ -51,10 +51,10 @@ super + Escape
 
 # show powermenu
 super + alt + Escape
-    /home/aquamarine/.config/polybar/scripts/powermenu
+    ~/.config/polybar/scripts/powermenu
 
 # restart bspwm
-super + hyper + Escape
+super + mod3 + Escape
     bspc wm -r
 
 # close and kill
@@ -118,23 +118,23 @@ super + {o,i}
     bspc wm -h on
 
 # focus a given desktop
-hyper + {1-9,0}
+mod3 + {1-9,0}
     bspc desktop --focus '^{1-9,10}'
 
 # focus or send to the given desktop
-hyper + alt + {1-9,0}
+mod3 + alt + {1-9,0}
     bspc node -d '^{1-9,10}'
 
 # focus next/previous desktop
-hyper + {h,l}
+mod3 + {h,l}
     bspc node -f {prev,next}
 
 # focus next/previous desktop
-hyper + {shift + ,_}Tab
+mod3 + {shift + ,_}Tab
     bspc node -f {prev,next}
 
 # send focused window to previous/next desktop
-hyper + alt + {h,l}
+mod3 + alt + {h,l}
     bspc node -d {prev,next}
 
 #
@@ -179,11 +179,11 @@ super + {Left,Down,Up,Right}
 
 # screenshot a region
 super + s
-    /home/aquamarine/bin/scr -s
+    ~/bin/scr -s
 
 # screenshot current window
 super + shift + s
-    /home/aquamarine/bin/scr -w
+    ~/bin/scr -w
 
 # select emoji
 super + i
