@@ -10,7 +10,7 @@ paq{'glepnir/galaxyline.nvim', branch = 'main'}
 paq{'unblevable/quick-scope'}
 paq{'wellle/targets.vim'}
 paq{'machakann/vim-sandwich'}
-paq{'Raimondi/delimitMate'}
+paq{'windwp/nvim-autopairs'}
 paq{'tpope/vim-fugitive'}
 paq{'lukas-reineke/indent-blankline.nvim'}
 paq{'tpope/vim-vinegar'}
@@ -18,7 +18,7 @@ paq{'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
 paq{'tpope/vim-repeat'}
 paq{'junegunn/fzf', run = fn['fzf#install']}
 paq{'junegunn/fzf.vim'}
-paq{'ojroques/nvim-lspfuzzy'}
+--paq{'ojroques/nvim-lspfuzzy'}
 paq{'Shougo/echodoc.vim'}
 paq{'vim-pandoc/vim-pandoc'}
 paq{'vim-pandoc/vim-pandoc-syntax'}
@@ -26,15 +26,15 @@ paq{'vim-pandoc/vim-pandoc-syntax'}
 paq{'kovetskiy/sxhkd-vim'}
 paq{'triglav/vim-visual-increment'}
 paq{'tpope/vim-surround'}
-paq{'justinmk/vim-sneak'}
+--paq{'justinmk/vim-sneak'}
 paq{'kyazdani42/nvim-web-devicons'}
 paq{'neovim/nvim-lspconfig'}
 paq{'nvim-lua/plenary.nvim'}
 paq{'nvim-telescope/telescope.nvim', requires = {'nvim-lua/plenary.nvim'}}
 paq{'nvim-treesitter/nvim-treesitter'}
 paq{'akinsho/bufferline.nvim'}
---paq{'shougo/deoplete-lsp'}
-paq{'shougo/deoplete.nvim', run = fn['remote#host#UpdateRemotePlugins']}
 paq{'nvim-telescope/telescope-fzy-native.nvim'}
 paq{'SmiteshP/nvim-gps'}
+paq{'nvim-lua/lsp_extensions.nvim'}
+paq{'hrsh7th/nvim-compe'}
 

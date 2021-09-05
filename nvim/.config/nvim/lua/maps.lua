@@ -14,14 +14,21 @@ map('n', '<F1>', ':w<CR>')
 map('i', '<F1>', '<Esc>:w<CR>')
 
 -- <Tab> to navigate the completion menu
-map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
 map('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {expr = true})
+map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
+map('i', '<C-Space>', 'compe#complete()', {silent = true, expr = true})
+map('i', '<CR>', [[compe#confirm(luaeval("require 'nvim-autopairs'.autopairs_cr()"))]], {silent = true, expr = true})
+map('i', '<C-e>', "compe#close('C-e')", {silent = true, expr = true})
+map('i', '<C-f>', [[compe#scroll({ 'delta': +4})]], {silent = true, expr = true})
+map('i', '<C-d>', [[compe#scroll({ 'delta': -4})]], {silent = true, expr = true})
+--vim.cmd "imap <Tab> <Plug>(completion_smart_tab)"
+--vim.cmd "imap <S-Tab> <Plug>(completion_smart_s_tab)"
 
 map('n', '<C-l>', '<cmd>noh<CR>')    -- Clear highlights
 
 -- Sneak
-map('n', 'f', '<Plug>Sneak_s')
-map('n', 'F', '<Plug>Sneak_S')
+--map('n', 'f', '<Plug>Sneak_s')
+--map('n', 'F', '<Plug>Sneak_S')
 
 -- Telescope
 map('n', '<C-p>', '<cmd>Telescope find_files<cr>')
