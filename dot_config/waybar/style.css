@@ -1,0 +1,146 @@
+* {
+  font-family: "JetBrainsMonoNL Nerd Font Mono";
+  font-size: 12pt;
+  border-radius: 5px;
+  /* font-weight: regular; */
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+@keyframes blink_red {
+  to {
+    background-color: rgb(242, 143, 173);
+    color: rgb(26, 24, 38);
+  }
+}
+.warning,
+.critical,
+window#waybar {
+  background-color: transparent;
+}
+window > box {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  background-color: rgb(250, 244, 252);
+}
+#workspaces {
+  padding-left: 0px;
+  padding-right: 4px;
+}
+#workspaces button {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 6px;
+  padding-right: 6px;
+  color: #99ccff;
+}
+#workspaces button.active {
+  background-color: rgb(181, 232, 224);
+  color: rgb(26, 24, 38);
+}
+#workspaces button:hover {
+  background-color: #ccccff;
+  color: rgb(26, 24, 38);
+}
+tooltip {
+  /* background: rgb(250, 244, 252); */
+  background: rgb(250, 244, 252);
+}
+tooltip label {
+  color: rgb(65, 72, 104);
+}
+#custom-launcher {
+  font-size: 20px;
+  padding-left: 8px;
+  padding-right: 6px;
+  color: #7ebae4;
+}
+#mode,
+#cpu,
+#mpd,
+#custom-mpd,
+#custom-spotify,
+#backlight,
+#wireplumber
+#network,
+#custom-powermenu {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#custom-weather {
+  color: #9933ff;
+  padding-right: 10px;
+}
+#clock {
+  padding-left: 10px;
+}
+#battery {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#mode {
+	margin-left: 10px;
+	background-color: rgb(248, 189, 150);
+  color: rgb(26, 24, 38);
+}
+#memory {
+  color: #66ccff;
+}
+#cpu {
+  color: #ff99ff;
+}
+#clock {
+  color: rgb(65, 72, 104);
+}
+/*
+#idle_inhibitor {
+color: #FF6699;
+}*/
+#temperature {
+  color: #9933ff;
+  padding-right: 8px;
+}
+#backlight {
+  color: #6666ff;
+}
+#network {
+  color: #00cc66;
+}
+
+#network.disconnected {
+  color: #99cccc;
+}
+#battery.charging,
+#battery.full,
+#battery.discharging {
+  color: #ff99cc;
+}
+#battery.critical:not(.charging) {
+  color: rgb(242, 143, 173);
+}
+#custom-powermenu {
+  color: #ff0066;
+}
+#tray {
+  padding-right: 8px;
+  padding-left: 10px;
+}
+#tray menu {
+  background: rgb(250, 244, 252);
+  color: rgb(192, 202, 245);
+}
+#mpd.paused {
+  color: rgb(192, 202, 245);
+  font-style: italic;
+}
+#mpd.stopped {
+  background: transparent;
+}
+#mpd {
+  color: rgb(65, 72, 104);
+
+  /* color: #c0caf5; */
+}
+/* #custom-cava-internal {
+  font-family: "Hack Nerd Font";
+} */

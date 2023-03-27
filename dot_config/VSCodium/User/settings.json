@@ -1,0 +1,12 @@
+{
+    "editor.columnSelection": true,
+    "workbench.colorTheme": "Catppuccin Latte",
+    "editor.fontFamily": "MonoLisaCustom Nerd Font",
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.minimap.enabled": false,
+}

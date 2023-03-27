@@ -1,4 +1,4 @@
-mpv/.config/mpv/watch_later
+.DS_Store
 ncmpcpp/art*
 ncmpcpp/error.log
 tint2/
@@ -7,3 +7,6 @@ mpd.db
 mpd.log
 mpd.pid
 mpdstate
+dot_config/nvim/
+dot_config/VSCodium/
+dot_config/mpv/watch_later/

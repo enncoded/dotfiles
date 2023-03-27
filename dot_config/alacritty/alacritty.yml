@@ -1,0 +1,653 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator
+
+# Any items in the `env` entry below will be added as
+# environment variables. Some entries may override variables
+# set by alacritty it self.
+env:
+#  # TERM env customization.
+#  #
+#  # If this property is not set, alacritty will set it to xterm-256color.
+#  #
+#  # Note that some xterm terminfo databases don't declare support for italics.
+#  # You can verify this by checking for the presence of `smso` and `sitm` in
+#  # `infocmp xterm-256color`.
+  TERM: xterm-256color
+
+window:
+    # Window dimensions in character columns and lines
+    # (changes require restart)
+    dimensions:
+      columns: 100
+      lines: 30
+
+    # Adds this many blank pixels of padding around the window
+    # Units are physical pixels; this is not DPI aware.
+    # (change requires restart)
+    padding:
+      x: 10
+      y: 10
+    opacity: 1.0
+
+# When true, bold text is drawn using the bright variant of colors.
+draw_bold_text_with_bright_colors: false
+
+# Font configuration (changes require restart)
+#
+# Important font attributes like antialiasing, subpixel aa, and hinting can be
+# controlled through fontconfig. Specifically, the following attributes should
+# have an effect:
+#
+# * hintstyle
+# * antialias
+# * lcdfilter
+# * rgba
+#
+# For instance, if you wish to disable subpixel antialiasing, you might set the
+# rgba property to "none". If you wish to completely disable antialiasing, you
+# can set antialias to false.
+#
+# Please see these resources for more information on how to use fontconfig
+#
+# * https://wiki.archlinux.org/index.php/font_configuration#Fontconfig_configuration
+# * file:///usr/share/doc/fontconfig/fontconfig-user.html
+font:
+  # The normal (roman) font face to use.
+  normal:
+    family: "MonoLisaCustom Nerd font" # should be "Menlo" or something on macOS.
+    # Style can be specified to pick a specific face.
+    style: Regular
+
+  # The bold font face
+  bold:
+    family: "MonoLisaCustom Nerd font" # should be "Menlo" or something on macOS.
+    # Style can be specified to pick a specific face.
+    style: Bold
+
+  # The italic font face
+  italic:
+    family: "MonoLisaCustom Nerd font" # should be "Menlo" or something on macOS.
+    # Style can be specified to pick a specific face.
+    style: Italic
+
+  # Point size of the font
+  size: 12.0
+
+  # Offset is the extra space around each character. offset.y can be thought of
+  # as modifying the linespacing, and offset.x as modifying the letter spacing.
+  offset:
+    x: 0
+    y: 0
+
+  # Glyph offset determines the locations of the glyphs within their cells with
+  # the default being at the bottom. Increase the x offset to move the glyph to
+  # the right, increase the y offset to move the glyph upward.
+  glyph_offset:
+    x: 0
+    y: 0
+
+# Should display the render timer
+# render_timer: false
+
+schemes:
+  latte: &latte
+      # Default colors
+      primary:
+          background: "#EFF1F5" # base
+          foreground: "#4C4F69" # text
+          # Bright and dim foreground colors
+          dim_foreground: "#4C4F69" # text
+          bright_foreground: "#4C4F69" # text
+  
+      # Cursor colors
+      cursor:
+          text: "#EFF1F5" # base
+          cursor: "#DC8A78" # rosewater
+      vi_mode_cursor:
+          text: "#EFF1F5" # base
+          cursor: "#7287FD" # lavender
+  
+      # Search colors
+      search:
+          matches:
+              foreground: "#EFF1F5" # base
+              background: "#6C6F85" # subtext0
+          focused_match:
+              foreground: "#EFF1F5" # base
+              background: "#40A02B" # green
+          footer_bar:
+              foreground: "#EFF1F5" # base
+              background: "#6C6F85" # subtext0
+  
+      # Keyboard regex hints
+      hints:
+          start:
+              foreground: "#EFF1F5" # base
+              background: "#DF8E1D" # yellow
+          end:
+              foreground: "#EFF1F5" # base
+              background: "#6C6F85" # subtext0
+  
+      # Selection colors
+      selection:
+          text: "#EFF1F5" # base
+          background: "#DC8A78" # rosewater
+  
+      # Normal colors
+      normal:
+          black: "#5C5F77" # subtext1
+          red: "#D20F39" # red
+          green: "#40A02B" # green
+          yellow: "#DF8E1D" # yellow
+          blue: "#1E66F5" # blue
+          magenta: "#EA76CB" # pink
+          cyan: "#179299" # teal
+          white: "#ACB0BE" # surface2
+  
+      # Bright colors
+      bright:
+          black: "#6C6F85" # subtext0
+          red: "#D20F39" # red
+          green: "#40A02B" # green
+          yellow: "#DF8E1D" # yellow
+          blue: "#1E66F5" # blue
+          magenta: "#EA76CB" # pink
+          cyan: "#179299" # teal
+          white: "#BCC0CC" # surface1
+  
+      # Dim colors
+      dim:
+          black: "#5C5F77" # subtext1
+          red: "#D20F39" # red
+          green: "#40A02B" # green
+          yellow: "#DF8E1D" # yellow
+          blue: "#1E66F5" # blue
+          magenta: "#EA76CB" # pink
+          cyan: "#179299" # teal
+          white: "#ACB0BE" # surface2
+  
+      indexed_colors:
+          - { index: 16, color: "#FE640B" }
+          - { index: 17, color: "#DC8A78" }
+
+  frappe: &frappe
+    # Default colors
+    primary:
+      background: '#303446' # base
+      foreground: '#c6d0f5' # text
+      # Bright and dim foreground colors
+      dim_foreground: '#c6d0f5' # text
+      bright_foreground: '#c6d0f5' # text
+
+    # Cursor colors
+    cursor:
+      text: '#303446' # base
+      cursor: '#f2d5cf' # rosewater
+    vi_mode_cursor:
+      text: '#303446' # base
+      cursor: '#babbf1' # lavender
+
+    # Search colors
+    search:
+      matches:
+        foreground: '#303446' # base
+        background: '#a5adce' # subtext0
+      focused_match:
+        foreground: '#303446' # base
+        background: '#a6d189' # green
+      bar:
+        foreground: '#303446' # base
+        background: '#a5adce' # subtext0
+
+    # Keyboard regex hints
+    hints:
+      start:
+        foreground: '#303446' # base
+        background: '#e5c890' # yellow
+      end:
+        foreground: '#303446' # base
+        background: '#a5adce' # subtext0
+
+    # Selection colors
+    selection:
+      text: '#303446' # base
+      background: '#f2d5cf' # rosewater
+
+    # Normal colors
+    normal:
+      black:   '#51576d' # surface1
+      red:     '#e78284' # red
+      green:   '#a6d189' # green
+      yellow:  '#e5c890' # yellow
+      blue:    '#8caaee' # blue
+      magenta: '#f4b8e4' # pink
+      cyan:    '#81c8be' # teal
+      white:   '#b5bfe2' # subtext1
+
+    # Bright colors
+    bright:
+      black:   '#51576d' # surface1
+      red:     '#e78284' # red
+      green:   '#a6d189' # green
+      yellow:  '#e5c890' # yellow
+      blue:    '#8caaee' # blue
+      magenta: '#f4b8e4' # pink
+      cyan:    '#81c8be' # teal
+      white:   '#b5bfe2' # subtext1
+
+    # Dim colors
+    dim:
+      black:   '#51576d' # surface1
+      red:     '#e78284' # red
+      green:   '#a6d189' # green
+      yellow:  '#e5c890' # yellow
+      blue:    '#8caaee' # blue
+      magenta: '#f4b8e4' # pink
+      cyan:    '#81c8be' # teal
+      white:   '#b5bfe2' # subtext1
+
+  macchiato: &macchiato
+    # Default colors
+    primary:
+      background: '#24273a' # base
+      foreground: '#cad3f5' # text
+      # Bright and dim foreground colors
+      dim_foreground: '#cad3f5' # text
+      bright_foreground: '#cad3f5' # text
+
+    # Cursor colors
+    cursor:
+      text: '#24273a' # base
+      cursor: '#f4dbd6' # rosewater
+    vi_mode_cursor:
+      text: '#24273a' # base
+      cursor: '#b7bdf8' # lavender
+
+    # Search colors
+    search:
+      matches:
+        foreground: '#24273a' # base
+        background: '#a5adcb' # subtext0
+      focused_match:
+        foreground: '#24273a' # base
+        background: '#a6da95' # green
+      bar:
+        foreground: '#24273a' # base
+        background: '#a5adcb' # subtext0
+
+    # Keyboard regex hints
+    hints:
+      start:
+        foreground: '#24273a' # base
+        background: '#eed49f' # yellow
+      end:
+        foreground: '#24273a' # base
+        background: '#a5adcb' # subtext0
+
+    # Selection colors
+    selection:
+      text: '#24273a' # base
+      background: '#f4dbd6' # rosewater
+
+    # Normal colors
+    normal:
+      black:   '#494d64' # surface1
+      red:     '#ed8796' # red
+      green:   '#a6da95' # green
+      yellow:  '#eed49f' # yellow
+      blue:    '#8aadf4' # blue
+      magenta: '#f5bde6' # pink
+      cyan:    '#8bd5ca' # teal
+      white:   '#b8c0e0' # subtext1
+
+    # Bright colors
+    bright:
+      black:   '#494d64' # surface1
+      red:     '#ed8796' # red
+      green:   '#a6da95' # green
+      yellow:  '#eed49f' # yellow
+      blue:    '#8aadf4' # blue
+      magenta: '#f5bde6' # pink
+      cyan:    '#8bd5ca' # teal
+      white:   '#b8c0e0' # subtext1
+
+    # Dim colors
+    dim:
+      black:   '#494d64' # surface1
+      red:     '#ed8796' # red
+      green:   '#a6da95' # green
+      yellow:  '#eed49f' # yellow
+      blue:    '#8aadf4' # blue
+      magenta: '#f5bde6' # pink
+      cyan:    '#8bd5ca' # teal
+      white:   '#b8c0e0' # subtext1
+
+  mocha: &mocha
+    # Default colors
+    primary:
+      background: '#1e1e2e' # base
+      foreground: '#cdd6f4' # text
+      # Bright and dim foreground colors
+      dim_foreground: '#cdd6f4' # text
+      bright_foreground: '#cdd6f4' # text
+
+    # Cursor colors
+    cursor:
+      text: '#1e1e2e' # base
+      cursor: '#f5e0dc' # rosewater
+    vi_mode_cursor:
+      text: '#1e1e2e' # base
+      cursor: '#b4befe' # lavender
+
+    # Search colors
+    search:
+      matches:
+        foreground: '#1e1e2e' # base
+        background: '#a6adc8' # subtext0
+      focused_match:
+        foreground: '#1e1e2e' # base
+        background: '#a6e3a1' # green
+      bar:
+        foreground: '#1e1e2e' # base
+        background: '#a6adc8' # subtext0
+
+    # Keyboard regex hints
+    hints:
+      start:
+        foreground: '#1e1e2e' # base
+        background: '#f9e2af' # yellow
+      end:
+        foreground: '#1e1e2e' # base
+        background: '#a6adc8' # subtext0
+
+    # Selection colors
+    selection:
+      text: '#1e1e2e' # base
+      background: '#f5e0dc' # rosewater
+
+    # Normal colors
+    normal:
+      black:   '#45475a' # surface1
+      red:     '#f38ba8' # red
+      green:   '#a6e3a1' # green
+      yellow:  '#f9e2af' # yellow
+      blue:    '#89b4fa' # blue
+      magenta: '#f5c2e7' # pink
+      cyan:    '#94e2d5' # teal
+      white:   '#bac2de' # subtext1
+
+    # Bright colors
+    bright:
+      black:   '#45475a' # surface1
+      red:     '#f38ba8' # red
+      green:   '#a6e3a1' # green
+      yellow:  '#f9e2af' # yellow
+      blue:    '#89b4fa' # blue
+      magenta: '#f5c2e7' # pink
+      cyan:    '#94e2d5' # teal
+      white:   '#bac2de' # subtext1
+
+    # Dim colors
+    dim:
+      black:   '#45475a' # surface1
+      red:     '#f38ba8' # red
+      green:   '#a6e3a1' # green
+      yellow:  '#f9e2af' # yellow
+      blue:    '#89b4fa' # blue
+      magenta: '#f5c2e7' # pink
+      cyan:    '#94e2d5' # teal
+      white:   '#bac2de' # subtext1
+
+  dayfox: &dayfox
+    # Default colors
+    primary:
+      background: '0xeaeaea'
+      foreground: '0x1d344f'
+    # Normal colors
+    normal:
+      black:   '0x1d344f'
+      red:     '0xb95d76'
+      green:   '0x618774'
+      yellow:  '0xba793e'
+      blue:    '0x4d688e'
+      magenta: '0x8e6f98'
+      cyan:    '0x6ca7bd'
+      white:   '0xcdd1d5'
+    # Bright colors
+    bright:
+      black:   '0x24476f'
+      red:     '0xc76882'
+      green:   '0x629f81'
+      yellow:  '0xca884a'
+      blue:    '0x4e75aa'
+      magenta: '0x9f75ac'
+      cyan:    '0x74b2c9'
+      white:   '0xcfd6dd'
+    indexed_colors:
+      - { index: 16, color: '0xe3786c' }
+      - { index: 17, color: '0xd685af' }
+
+  papercolor-light: &papercolor-light
+    # Default colors
+    primary:
+      background: '0xeeeeee'
+      foreground: '0x4d4d4c'
+  
+    # Colors the cursor will use if `custom_cursor_colors` is true
+    cursor:
+      text: '0xf3f3f3'
+      cursor: '0x4d4d4c'
+  
+    # Normal colors
+    normal:
+      black:   '0xededed'
+      red:     '0xd7005f'
+      green:   '0x718c00'
+      yellow:  '0xd75f00'
+      blue:    '0x4271ae'
+      magenta: '0x8959a8'
+      cyan:    '0x3e999f'
+      white:   '0x4d4d4c'
+  
+    # Bright colors
+    bright:
+      black:   '0x949494'
+      red:     '0xd7005f'
+      green:   '0x718c00'
+      yellow:  '0xd75f00'
+      blue:    '0x4271ae'
+      magenta: '0x8959a8'
+      cyan:    '0x3e999f'
+      white:   '0xf5f5f5'
+  rose-pine-dawn: &rose-pine-dawn
+    primary:
+      background: "0xfaf4ed"
+      foreground: "0x575279"
+    cursor:
+      text: "0x575279"
+      cursor: "0xcecacd"
+    vi_mode_cursor:
+      text: "0x575279"
+      cursor: "0xcecacd"
+    line_indicator:
+      foreground: None
+      background: None
+    selection:
+      text: "0x575279"
+      background: "0xdfdad9"
+    normal:
+      black: "0xf2e9e1"
+      red: "0xb4637a"
+      green: "0x286983"
+      yellow: "0xea9d34"
+      blue: "0x56949f"
+      magenta: "0x907aa9"
+      cyan: "0xd7827e"
+      white: "0x575279"
+    bright:
+      black: "0x9893a5"
+      red: "0xb4637a"
+      green: "0x286983"
+      yellow: "0xea9d34"
+      blue: "0x56949f"
+      magenta: "0x907aa9"
+      cyan: "0xd7827e"
+      white: "0x575279"
+    hints:
+      start:
+        foreground: "#797593"
+        background: "#fffaf3"
+      end:
+        foreground: "#9893a5"
+        background: "#fffaf3"
+
+colors: *latte
+
+# Visual Bell
+#
+# Any time the BEL code is received, Alacritty "rings" the visual bell. Once
+# rung, the terminal background will be set to white and transition back to the
+# default background color. You can control the rate of this transition by
+# setting the `duration` property (represented in milliseconds). You can also
+# configure the transition function by setting the `animation` property.
+#
+# Possible values for `animation`
+# `Ease`
+# `EaseOut`
+# `EaseOutSine`
+# `EaseOutQuad`
+# `EaseOutCubic`
+# `EaseOutQuart`
+# `EaseOutQuint`
+# `EaseOutExpo`
+# `EaseOutCirc`
+# `Linear`
+#
+# To completely disable the visual bell, set its duration to 0.
+#
+bell:
+  animation: EaseOutExpo
+  duration: 0
+
+# Mouse bindings
+#
+# Currently doesn't support modifiers. Both the `mouse` and `action` fields must
+# be specified.
+#
+# Values for `mouse`:
+# - Middle
+# - Left
+# - Right
+# - Numeric identifier such as `5`
+#
+# Values for `action`:
+# - Paste
+# - PasteSelection
+# - Copy (TODO)
+#mouse_bindings:
+#  - { mouse: Middle, action: PasteSelection }
+
+mouse:
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+  hide_when_typing: true
+
+url:
+    # URL launcher
+    # This program is executed when clicking on a text which is recognized as a URL.
+    # The URL is always added to the command as the last parameter.
+    launcher: xdg-open
+
+    # URL modifiers
+    #
+    # These are the modifiers that need to be held down for opening URLs when clicking
+    # on them. The available modifiers are documented in the key binding section.
+    #modifiers: Control|Shift
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>"
+
+
+# Live config reload (changes require restart)
+live_config_reload: true
+
+# Shell
+#
+# You can set shell.program to the path of your favorite shell, e.g. /bin/fish.
+# Entries in shell.args are passed unmodified as arguments to the shell.
+# shell:
+#   program: /bin/bash
+#   args:
+#     - --login
+
+
+# Key bindings
+#
+# Each binding is defined as an object with some properties. Most of the
+# properties are optional. All of the alphabetical keys should have a letter for
+# the `key` value such as `V`. Function keys are probably what you would expect
+# as well (F1, F2, ..). The number keys above the main keyboard are encoded as
+# `Key1`, `Key2`, etc. Keys on the number pad are encoded `Number1`, `Number2`,
+# etc.  These all match the glutin::VirtualKeyCode variants.
+#
+# Possible values for `mods`
+# `Command`, `Super` refer to the super/command/windows key
+# `Control` for the control key
+# `Shift` for the Shift key
+# `Alt` and `Option` refer to alt/option
+#
+# mods may be combined with a `|`. For example, requiring control and shift
+# looks like:
+#
+# mods: Control|Shift
+#
+# The parser is currently quite sensitive to whitespace and capitalization -
+# capitalization must match exactly, and piped items must not have whitespace
+# around them.
+#
+# Either an `action`, `chars`, or `command` field must be present.
+#   `action` must be one of `Paste`, `PasteSelection`, `Copy`, or `Quit`.
+#   `chars` writes the specified string every time that binding is activated.
+#     These should generally be escape sequences, but they can be configured to
+#     send arbitrary strings of bytes.
+#   `command` must be a map containing a `program` string, and `args` array of
+#     strings. For example:
+#     - { ... , command: { program: "alacritty", args: ["-e", "vttest"] } }
+#
+# Want to add a binding (e.g. "PageUp") but are unsure what the X sequence
+# (e.g. "\x1b[5~") is? Open another terminal (like xterm) without tmux,
+# then run `showkey -a` to get the sequence associated to a key combination.
+key_bindings:
+  - { key: V,        mods: Control|Alt, action: Paste                    }
+  - { key: C,        mods: Control|Alt, action: Copy                     }
+  - { key: Space,    mods: Control, chars: "\x00"                        }
+  - { key: Equals,   mods: Control, action: IncreaseFontSize             }
+  - { key: Minus,    mods: Control, action: DecreaseFontSize             }
+  - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
+  - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }
+  - { key: End,                     chars: "\x1bOF",   mode: AppCursor   }
+  - { key: End,                     chars: "\x1b[F",   mode: ~AppCursor  }
+  - { key: PageUp,                  chars: "\x1b[5~"                     }
+  - { key: PageDown,                chars: "\x1b[6~"                     }
+  - { key: Back,                    chars: "\x7f"                        }
+  - { key: Insert,                  chars: "\x1b[2~"                     }
+  - { key: Delete,                  chars: "\x1b[3~"                     }
+  - { key: Left,                    chars: "\x1b[D",   mode: ~AppCursor  }
+  - { key: Left,                    chars: "\x1bOD",   mode: AppCursor   }
+  - { key: Right,                   chars: "\x1b[C",   mode: ~AppCursor  }
+  - { key: Right,                   chars: "\x1bOC",   mode: AppCursor   }
+  - { key: Up,                      chars: "\x1b[A",   mode: ~AppCursor  }
+  - { key: Up,                      chars: "\x1bOA",   mode: AppCursor   }
+  - { key: Down,                    chars: "\x1b[B",   mode: ~AppCursor  }
+  - { key: Down,                    chars: "\x1bOB",   mode: AppCursor   }
+  - { key: F1,                      chars: "\x1bOP"                      }
+  - { key: F2,                      chars: "\x1bOQ"                      }
+  - { key: F3,                      chars: "\x1bOR"                      }
+  - { key: F4,                      chars: "\x1bOS"                      }
+  - { key: F5,                      chars: "\x1b[15~"                    }
+  - { key: F6,                      chars: "\x1b[17~"                    }
+  - { key: F7,                      chars: "\x1b[18~"                    }
+  - { key: F8,                      chars: "\x1b[19~"                    }
+  - { key: F9,                      chars: "\x1b[20~"                    }
+  - { key: F10,                     chars: "\x1b[21~"                    }
+  - { key: F11,                     chars: "\x1b[23~"                    }
+  - { key: F12,                     chars: "\x1b[24~"                    }

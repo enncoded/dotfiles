@@ -1,0 +1,148 @@
+{
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", "", ""],
+    "on-scroll-down": "light -U 2",
+    "on-scroll-up": "light -A 2"
+  },
+  "battery": {
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-full": "{icon} {capacity}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "interval": 10,
+    "states": {
+      "critical": 10,
+      "warning": 20
+    },
+    "tooltip": false
+  },
+  "clock": {
+    "format": "{: %H:%M:%S   %a %m/%d}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "interval": 1
+  },
+  "wireplumber": {
+    "format": "{icon} {volume}%",
+    "tooltip": false,
+    "format-muted": " 0",
+    "on-click": "amixer -D pipewire set Master toggle",
+    "on-scroll-up": "amixer -D pipewire sset Master 5%+",
+    "on-scroll-down": "amixer -D pipewire sset Master 5%-",
+    "scroll-step": 2,
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", "󰕾", ""]
+    }
+  },
+  "cpu": {
+    "format": " {usage}%",
+    "interval": 1
+  },
+  "custom/weather": {
+    "tooltip": true,
+    "format": "{}",
+    "restart-interval": 300,
+    "exec": "~/.config/waybar/scripts/waybar-wttr.py",
+    "return-type": "json"
+  },
+  "custom/powermenu": {
+    "format": "",
+    "on-click": "pkill rofi || ~/.config/rofi/powermenu.sh",
+    "tooltip": false
+  },
+  "layer": "top",
+  "memory": {
+    "format": "﬙ {percentage}%",
+    "interval": 1,
+    "states": {
+      "warning": 85
+    }
+  },
+  "modules-left": [
+    "clock",
+    "wlr/workspaces"
+  ],
+  "modules-center": [
+    "mpd",
+    "custom/spotify"
+  ],
+  "modules-right": [
+    "tray",
+    "wireplumber",
+    "backlight",
+    // "memory",
+    // "cpu",
+    "custom/weather",
+    "network",
+    "battery"
+    // "custom/powermenu"
+  ],
+  "custom/spotify": {
+    "format": "♪ {}",
+    "escape": true,
+    "return-type": "json",
+    "max-length": 40,
+    "interval": 30, // Remove this if your script is endless and write in loop
+    "on-click": "playerctl -p spotify play-pause",
+    "on-click-right": "killall spotify",
+    "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
+    "on-scroll-up": "playerctl -p spotify next",
+    "on-scroll-down": "playerctl -p spotify previous",
+    "exec": "~/.config/waybar/scripts/mediaplayer.py 2> /dev/null" // Script in resources/custom_modules folder
+  },
+  "mpd": {
+    "format": "<span foreground='#FF99FF'></span> {title}",
+    "format-disconnected": "",
+    "format-paused": " {title}",
+    "format-stopped": "<span foreground='#bb9af7'></span>",
+    "max-length": 25,
+    "on-click": "mpc --quiet toggle",
+    "on-click-right": "wezterm start --always-new-process ncmpcpp ",
+    "on-scroll-down": "mpc --quiet next",
+    "on-scroll-up": "mpc --quiet prev",
+    "smooth-scrolling-threshold": 5,
+    "tooltip-format": "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})"
+  },
+  "network": {
+    "format-disconnected": "說 Disconnected",
+    "format-ethernet": "  {ifname} ({ipaddr})",
+    "format-linked": "說 {essid} (No IP)",
+    "format-wifi": "說 {essid}",
+    "interval": 1,
+    "tooltip": false
+  },
+  "position": "top",
+  "temperature": {
+    "format": " {temperatureF}°F",
+    "tooltip": false,
+    "spacing": 4
+  },
+  "tray": {
+    "icon-size": 15,
+    "spacing": 5
+  },
+  "wlr/workspaces": {
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "all-outputs": true,
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "urgent": "",
+      "active": "",
+      "default": ""
+    }
+  }
+}
